@@ -4,7 +4,13 @@ import { allLabels } from '../constants/tankLabels'
 import '../styles/TankList.css'
 
 const TankList = ({ registeredTanks }) => {
-    console.log(registeredTanks)
+    if (registeredTanks.length === 0)
+        return (
+            <p className="mt-2">
+                No registered tanks.
+            </p>
+        )
+
     return (
         <table className="table col-6 mt-4">
             <thead>
