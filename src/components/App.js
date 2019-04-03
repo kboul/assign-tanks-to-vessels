@@ -3,7 +3,9 @@ import Container from './Container';
 
 const App = () => {
     return (
-        <Container />
+        <div className="container mt-2">
+            <Container />
+        </div>
     )
 }
 
