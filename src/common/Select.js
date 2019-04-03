@@ -5,7 +5,7 @@ import PropTypes from 'prop-types'
 const Select = ({ name, label, options }) => {
     return (
         <div className="form-group">
-            <label>{label}</label>
+            <label><b>{label}</b></label>
             <div className="form-group">
                 <div>
                     <Field

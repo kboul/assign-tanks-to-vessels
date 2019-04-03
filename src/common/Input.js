@@ -14,7 +14,7 @@ const renderField = ({ input }) => {
 const Input = ({ name, label }) => {
     return (
         <div>
-            <label>{label}</label>
+            <label><b>{label}</b></label>
             <div className="form-group">
                 <Field
                     name={name}
