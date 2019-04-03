@@ -4,8 +4,9 @@ import PropTypes from 'prop-types'
 import ModalComp from '../common/ModalComp'
 import RegisterTank from './RegisterTank'
 import { toggleModal } from '../redux-local/actions'
+import { registerTank } from '../redux-local/actions'
 
-const Container = ({ modal: { isModalVisible }, toggleModal }) => {
+const Container = ({ modal: { isModalVisible }, toggleModal, registerTank, registeredTanks }) => {
     return (
         <div>
             <button
@@ -16,7 +17,10 @@ const Container = ({ modal: { isModalVisible }, toggleModal }) => {
             <ModalComp
                 modal={isModalVisible}
                 toggle={() => toggleModal()}>
-                <RegisterTank onSubmit={() => toggleModal()} />
+                <RegisterTank onSubmit={() => {
+                    toggleModal()
+                    registerTank(registeredTanks.values)
+                }} />
             </ModalComp>
         </div>
     )
@@ -24,13 +28,17 @@ const Container = ({ modal: { isModalVisible }, toggleModal }) => {
 
 Container.propTypes = {
     modal: PropTypes.objectOf(Boolean).isRequired,
-    toggleModal: PropTypes.func.isRequired
+    toggleModal: PropTypes.func.isRequired,
+    registerTank: PropTypes.func.isRequired,
+    registeredTanks: PropTypes.array
 }
 
 const mapStateToProps = state => ({
-    modal: state.modal
+    modal: state.modal,
+    registeredTanks: state.form.registerTank
 })
 
 export default connect(mapStateToProps, {
-    toggleModal
+    toggleModal,
+    registerTank
 })(Container)
