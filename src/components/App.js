@@ -1,28 +1,23 @@
 import React, { Component } from 'react'
+import { connect } from 'react-redux'
+import PropTypes from 'prop-types'
 import ModalComp from '../common/ModalComp'
 import RegisterTank from './RegisterTank'
+import { toggleModal } from '../redux-local/actions'
 
 class App extends Component {
-    state = {
-        isVisible: false
-    }
-
-    toggleModal = () => {
-        this.setState({ isVisible: !this.state.isVisible })
-    }
-
     render() {
         return (
             <div>
                 <button
                     className="btn btn-primary"
-                    onClick={this.toggleModal}>
+                    onClick={() => this.props.toggleModal()}>
                     Register Tank
                 </button>
                 <ModalComp
-                    modal={this.state.isVisible}
-                    toggle={this.toggleModal}>
-                    <RegisterTank onSubmit={this.toggleModal} />
+                    modal={this.props.modal.isModalVisible}
+                    toggle={() => this.props.toggleModal()}>
+                    <RegisterTank onSubmit={() => this.props.toggleModal()} />
                 </ModalComp>
             </div>
 
@@ -30,4 +25,14 @@ class App extends Component {
     }
 }
 
-export default App
+App.propTypes = {
+    toggleModal: PropTypes.func
+}
+
+const mapStateToProps = state => ({
+    modal: state.modal
+})
+
+export default connect(mapStateToProps, {
+    toggleModal
+})(App)
