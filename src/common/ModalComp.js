@@ -8,7 +8,9 @@ const ModalComp = ({ modal, toggle, children }) => {
             isOpen={modal}
             toggle={toggle}
             size="lg">
-            <ModalHeader toggle={toggle}></ModalHeader>
+            <ModalHeader toggle={toggle}>
+                Add New Tank
+            </ModalHeader>
             <ModalBody>{children}</ModalBody>
         </Modal>
     )
