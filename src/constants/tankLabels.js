@@ -32,3 +32,8 @@ export const selectLabels = [
         ]
     }
 ]
+
+export const allLabels = [
+    ...inputLabels.map(({ label }) => label),
+    ...selectLabels.map(({ label }) => label)
+]
