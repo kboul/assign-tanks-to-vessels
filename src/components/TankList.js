@@ -33,8 +33,8 @@ const TankList = ({ registeredTanks }) => {
                         <React.Fragment key={key}>
                             <tr>
                                 <td>{unimedId}</td>
-                                <td>{cylinderSize}</td>
                                 <td>{cyclinderSerialNumber}</td>
+                                <td>{cylinderSize}</td>
                                 <td>{origin}</td>
                                 <td>{owner}</td>
                             </tr>
