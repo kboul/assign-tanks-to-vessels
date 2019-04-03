@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import ModalComp from '../common/ModalComp'
+import RegisterTank from './RegisterTank'
 
 class App extends Component {
     state = {
@@ -13,13 +14,15 @@ class App extends Component {
     render() {
         return (
             <div>
-                <button className="btn btn-primary" onClick={this.toggleModal}>
+                <button
+                    className="btn btn-primary"
+                    onClick={this.toggleModal}>
                     Register Tank
-            </button>
+                </button>
                 <ModalComp
                     modal={this.state.isVisible}
                     toggle={this.toggleModal}>
-                    <div>modal content</div>
+                    <RegisterTank />
                 </ModalComp>
             </div>
 
