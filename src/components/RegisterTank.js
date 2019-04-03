@@ -28,14 +28,14 @@ const RegisterTank = ({ handleSubmit, pristine, reset, submitting }) => {
             })}
 
             <button
-                className="btn btn-primary btn-lg float-right"
+                className="btn btn-primary btn float-right"
                 type="submit"
                 disabled={pristine || submitting}>
                 Save
             </button>
 
             <button
-                className="btn btn-primary btn-lg float-right mr-4"
+                className="btn btn-primary btn float-right mr-4"
                 type="button"
                 disabled={pristine || submitting}
                 onClick={reset}>
