@@ -1,5 +1,5 @@
 export const inputLabels = [
-    { name: 'unimedIn', label: 'Unimed Id' },
+    { name: 'unimedId', label: 'Unimed Id' },
     { name: 'cyclinderSerialNumber', label: 'Cylinder Serial Number' }
 ]
 

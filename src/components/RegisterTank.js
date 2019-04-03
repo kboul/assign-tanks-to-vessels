@@ -48,7 +48,7 @@ const RegisterTank = ({ handleSubmit, pristine, reset, submitting }) => {
 export default reduxForm({
     form: "registerTank",
     initialValues: {
-        unimedIn: '',
+        unimedId: '',
         cyclinderSerialNumber: '',
         cylinderSize: 'MOX-40',
         origin: 'US',
