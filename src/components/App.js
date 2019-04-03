@@ -22,7 +22,7 @@ class App extends Component {
                 <ModalComp
                     modal={this.state.isVisible}
                     toggle={this.toggleModal}>
-                    <RegisterTank />
+                    <RegisterTank onSubmit={this.toggleModal} />
                 </ModalComp>
             </div>
 

@@ -5,7 +5,7 @@ import Select from '../common/Select'
 import { inputLabels, selectLabels }
     from '../constants/tankLabels'
 
-const RegisterTank = ({ handleSubmit }) => {
+const RegisterTank = ({ handleSubmit, pristine, reset, submitting }) => {
     return (
         <form onSubmit={handleSubmit}>
             {inputLabels.map(({ name, label }, key) => {
@@ -26,6 +26,21 @@ const RegisterTank = ({ handleSubmit }) => {
                     </div>
                 )
             })}
+
+            <button
+                className="btn btn-primary btn-lg float-right"
+                type="submit"
+                disabled={pristine || submitting}>
+                Save
+            </button>
+
+            <button
+                className="btn btn-primary btn-lg float-right mr-4"
+                type="button"
+                disabled={pristine || submitting}
+                onClick={reset}>
+                Cancel
+            </button>
         </form>
     )
 }
