@@ -14,7 +14,7 @@ const Container = ({ modal: { isModalVisible }, toggleModal, registerTank, tank 
                 className="btn btn-primary"
                 onClick={() => toggleModal()}>
                 Register Tank
-                </button>
+            </button>
             <ModalComp
                 modal={isModalVisible}
                 toggle={() => toggleModal()}>
@@ -33,7 +33,7 @@ Container.propTypes = {
     modal: PropTypes.objectOf(Boolean).isRequired,
     toggleModal: PropTypes.func.isRequired,
     registerTank: PropTypes.func.isRequired,
-    registeredTanks: PropTypes.object
+    tank: PropTypes.object
 }
 
 const mapStateToProps = state => ({
