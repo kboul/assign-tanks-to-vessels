@@ -1,6 +1,14 @@
 export const inputLabels = [
-    { name: 'unimedId', label: 'Unimed Id' },
-    { name: 'cyclinderSerialNumber', label: 'Cylinder Serial Number' }
+    {
+        name: 'unimedId',
+        label: 'Unimed Id',
+        abbreviation: 'UMM ID'
+    },
+    {
+        name: 'cyclinderSerialNumber',
+        label: 'Cylinder Serial Number',
+        abbreviation: 'Serial Number'
+    }
 ]
 
 export const selectLabels = [
@@ -12,7 +20,8 @@ export const selectLabels = [
             'MOX-10',
             'MOX-5',
             'MOX-2'
-        ]
+        ],
+        abbreviation: 'Cylinder Size'
     },
     {
         name: 'origin',
@@ -21,7 +30,8 @@ export const selectLabels = [
             'US',
             'EU',
             'OTHER'
-        ]
+        ],
+        abbreviation: 'Origin'
     },
     {
         name: 'owner',
@@ -29,11 +39,17 @@ export const selectLabels = [
         options: [
             'UNIMED',
             'OTHER'
-        ]
+        ],
+        abbreviation: 'Owner'
     }
 ]
 
 export const allLabels = [
     ...inputLabels.map(({ label }) => label),
     ...selectLabels.map(({ label }) => label)
+]
+
+export const allLabelsAbbreviation = [
+    ...inputLabels.map(({ abbreviation }) => abbreviation),
+    ...selectLabels.map(({ abbreviation }) => abbreviation)
 ]

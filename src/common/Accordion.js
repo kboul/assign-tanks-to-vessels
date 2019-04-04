@@ -3,6 +3,7 @@ import PropTypes from 'prop-types'
 import { Collapse, CardBody, Card, CardHeader } from 'reactstrap'
 import FaAngle from './FaAngle'
 import '../styles/Accordion.css'
+import { allLabelsAbbreviation } from '../constants/tankLabels'
 
 class Accordion extends Component {
     state = {
@@ -26,7 +27,25 @@ class Accordion extends Component {
                         </CardHeader>
                         <Collapse isOpen={this.state.collapse}>
                             <CardBody>
-                                {this.props.children}
+                                <table className="table">
+                                    <thead style={{ fontSize: '16px' }}>
+                                        <tr>
+                                            {allLabelsAbbreviation.map((label, key) => {
+                                                return (
+                                                    <th
+                                                        key={key}
+                                                        scope="col">
+                                                        {label}
+                                                    </th>
+                                                )
+                                            })}
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+
+                                    </tbody>
+                                    {this.props.children}
+                                </table>
                             </CardBody>
                         </Collapse>
                     </Card>
