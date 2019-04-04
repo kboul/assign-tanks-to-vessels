@@ -1,9 +1,10 @@
 import React from 'react'
 import { connect } from 'react-redux'
+import PropTypes from 'prop-types'
 import { allLabels } from '../constants/tankLabels'
 import { toggleModalToAssignVessel } from '../redux-local/actions'
+import ModalComp from '../common/ModalComp'
 import '../styles/TankList.css'
-import ModalComp from '../common/ModalComp';
 
 const displayNumberOfTanks = tanks => {
     if (tanks.length === 1)
@@ -23,7 +24,7 @@ const TankList = ({ registeredTanks,
 
     return (
         <React.Fragment>
-            <table className="table col-6 mt-4" id="tanksTable">
+            <table className="table mt-4" id="tanksTable">
                 <thead>
                     <tr>
                         {allLabels.map((label, key) => {
@@ -39,20 +40,22 @@ const TankList = ({ registeredTanks,
                     </tr>
                 </thead>
                 <tbody>
-                    {registeredTanks.map(({ unimedId, cyclinderSerialNumber,
-                        cylinderSize, origin, owner }, key) => {
+                    {registeredTanks.map((tank, key) => {
                         return (
                             <React.Fragment key={key}>
                                 <tr>
-                                    <td>{unimedId}</td>
-                                    <td>{cyclinderSerialNumber}</td>
-                                    <td>{cylinderSize}</td>
-                                    <td>{origin}</td>
-                                    <td>{owner}</td>
+                                    <td>{tank.unimedId}</td>
+                                    <td>{tank.cyclinderSerialNumber}</td>
+                                    <td>{tank.cylinderSize}</td>
+                                    <td>{tank.origin}</td>
+                                    <td>{tank.owner}</td>
                                     <td>
                                         <button
                                             className="btn btn-sm btn-primary"
-                                            onClick={() => toggleModalToAssignVessel()}>
+                                            onClick={() => {
+                                                toggleModalToAssignVessel()
+                                                console.log(tank)
+                                            }}>
                                             Assign
                                         </button>
                                     </td>
@@ -73,6 +76,12 @@ const TankList = ({ registeredTanks,
             </ModalComp>
         </React.Fragment>
     )
+}
+
+TankList.propTypes = {
+    registeredTanks: PropTypes.array.isRequired,
+    modal: PropTypes.objectOf(Boolean).isRequired,
+    toggleModalToAssignVessel: PropTypes.func.isRequired
 }
 
 const mapStateToProps = state => ({
