@@ -10,13 +10,12 @@
 }
   
 #tanksTable tr:nth-child(even){background-color: #f2f2f2;}
-  
-#tanksTable tr:hover {background-color: #ddd;}
-  
+    
 #tanksTable th {
     padding-top: 12px;
     padding-bottom: 12px;
     text-align: left;
     background-color: #4a5066;
     color: white;
+    text-align: center;
 }
