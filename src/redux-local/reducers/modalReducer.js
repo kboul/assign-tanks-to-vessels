@@ -1,7 +1,7 @@
 import { TYPES } from '../actions/types'
 
 const initialState = {
-    isModalVisibleToRegisterTank: false,
+    isModalToRegisterTankVisible: false,
     isModalToAssignVesselVisible: false
 }
 
@@ -10,7 +10,7 @@ function modalReducer(state = initialState, action) {
         case TYPES.TOGGLE_MODAL_TO_REGISTER_TANK:
             return {
                 ...state,
-                isModalVisibleToRegisterTank: !state.isModalVisibleToRegisterTank
+                isModalToRegisterTankVisible: !state.isModalToRegisterTankVisible
             }
         case TYPES.TOGGLE_MODAL_TO_ASSIGN_VESSEL:
             return {

@@ -9,7 +9,7 @@ import TankList from './TankList'
 import Accordion from '../common/Accordion'
 import { selectLabels } from '../constants/tankLabels'
 
-const Container = ({ modal: { isModalVisibleToRegisterTank },
+const Container = ({ modal: { isModalToRegisterTankVisible },
     toggleModalToRegisterTank, registerTank, tank }) => {
 
     return (
@@ -19,9 +19,10 @@ const Container = ({ modal: { isModalVisibleToRegisterTank },
                 onClick={() => toggleModalToRegisterTank()}>
                 Register Tank
             </button>
+
             <ModalComp
                 header={'Add New Tank'}
-                modal={isModalVisibleToRegisterTank}
+                modal={isModalToRegisterTankVisible}
                 toggle={() => toggleModalToRegisterTank()}>
                 <RegisterTank onSubmit={() => {
                     toggleModalToRegisterTank()
@@ -31,9 +32,12 @@ const Container = ({ modal: { isModalVisibleToRegisterTank },
 
             <TankList />
 
-            {selectLabels[0].options.map((tank, key) => {
-                return <Accordion key={key} header={tank} />
-            })}
+            <div>
+                <h4>Vessels Grid</h4>
+                {selectLabels[0].options.map((tank, key) => {
+                    return <Accordion key={key} header={tank} />
+                })}
+            </div>
         </div>
     )
 }
