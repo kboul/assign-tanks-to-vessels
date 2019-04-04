@@ -4,7 +4,13 @@ import Container from './Container';
 const App = () => {
     return (
         <div className="container mt-2">
-            <Container />
+            <div className="row">
+                <div className="col-3"></div>
+                <div className="col-6">
+                    <Container />
+                </div>
+                <div className="col-3"></div>
+            </div>
         </div>
     )
 }

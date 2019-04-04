@@ -17,7 +17,7 @@ class Accordion extends Component {
     render() {
         return (
             <div className="row no-gutters">
-                <div className="col-6">
+                <div className="col">
                     <Card id='card'>
                         <CardHeader
                             id='cardHeader'
