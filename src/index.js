@@ -6,6 +6,7 @@ import { createStore, compose } from 'redux'
 import reducer from './redux-local/reducers'
 
 import 'bootstrap/dist/css/bootstrap.css'
+import 'font-awesome/css/font-awesome.min.css'
 import './index.css'
 
 import App from './components/App'
