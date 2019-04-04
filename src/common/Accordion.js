@@ -42,9 +42,8 @@ class Accordion extends Component {
                                         </tr>
                                     </thead>
                                     <tbody>
-
+                                        {this.props.children}
                                     </tbody>
-                                    {this.props.children}
                                 </table>
                             </CardBody>
                         </Collapse>
