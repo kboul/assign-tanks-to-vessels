@@ -2,8 +2,8 @@ import React, { Component } from 'react'
 import PropTypes from 'prop-types'
 import { Collapse, CardBody, Card, CardHeader } from 'reactstrap'
 import FaAngle from './FaAngle'
-import '../styles/Accordion.css'
 import { allLabelsAbbreviation } from '../constants/tankLabels'
+import '../styles/Accordion.css'
 
 class Accordion extends Component {
     state = {
