@@ -1,5 +1,6 @@
 import React from 'react'
 import { reduxForm } from "redux-form"
+import PropTypes from 'prop-types'
 import Input from '../common/Input'
 import Select from '../common/Select'
 import { inputLabels, selectLabels }
@@ -43,6 +44,13 @@ const RegisterTank = ({ handleSubmit, pristine, reset, submitting }) => {
             </button>
         </form>
     )
+}
+
+RegisterTank.propTypes = {
+    pristine: PropTypes.bool.isRequired,
+    submitting: PropTypes.bool.isRequired,
+    handleSubmit: PropTypes.func.isRequired,
+    reset: PropTypes.func.isRequired
 }
 
 export default reduxForm({
