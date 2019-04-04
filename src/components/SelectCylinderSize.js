@@ -4,12 +4,12 @@ import PropTypes from 'prop-types'
 import Select from '../common/Select'
 import { selectLabels } from '../constants/tankLabels'
 
-const SelectTank = ({ handleSubmit, submitting }) => {
+const SelectCylinderSize = ({ handleSubmit, submitting }) => {
     return (
         <form onSubmit={handleSubmit}>
             <Select
-                label={'Select Tank'}
-                name={'selectTank'}
+                label={'Select Cylinder Size'}
+                name={'selectCylinderSize'}
                 options={selectLabels[0].options} />
 
             <button
@@ -22,14 +22,14 @@ const SelectTank = ({ handleSubmit, submitting }) => {
     )
 }
 
-SelectTank.propTypes = {
+SelectCylinderSize.propTypes = {
     submitting: PropTypes.bool.isRequired,
-    handleSubmit: PropTypes.func.isRequired,
+    handleSubmit: PropTypes.func.isRequired
 }
 
 export default reduxForm({
-    form: "selectTank",
+    form: "selectCylinderSize",
     initialValues: {
-        selectTank: 'MOX-40'
+        selectCylinderSize: 'MOX-40'
     }
-})(SelectTank)
+})(SelectCylinderSize)

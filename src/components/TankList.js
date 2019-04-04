@@ -5,7 +5,7 @@ import { allLabels } from '../constants/tankLabels'
 import { toggleModalToAssignVessel } from '../redux-local/actions'
 import ModalComp from '../common/ModalComp'
 import '../styles/TankList.css'
-import SelectTank from './SelectTank'
+import SelectCylinderSize from './SelectCylinderSize'
 
 const displayNumberOfTanks = tanks => {
     if (tanks.length === 1)
@@ -74,7 +74,7 @@ const TankList = ({ registeredTanks,
                 header={'Assign Tanks To Vessels Grid'}
                 modal={isModalToAssignVesselVisible}
                 toggle={() => toggleModalToAssignVessel()}>
-                <SelectTank onSubmit={() => {
+                <SelectCylinderSize onSubmit={() => {
                     toggleModalToAssignVessel()
                 }} />
             </ModalComp>
