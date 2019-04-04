@@ -33,27 +33,28 @@ const Container = ({ modal: { isModalToRegisterTankVisible },
 
             <TankList />
 
-            <div className="mt-4">
-                <h4>Vessels Grid</h4>
-                {selectLabels[0].options.map((selectLabel, key) => {
-                    return (
-                        <Accordion key={key} header={selectLabel}>
-                            {tanks.filter(tank => tank.cylinderSize === selectLabel)
-                                .map((tank, key) => {
-                                    return (
-                                        <tr key={key}>
-                                            <td>{tank.unimedId}</td>
-                                            <td>{tank.cyclinderSerialNumber}</td>
-                                            <td>{tank.cylinderSize}</td>
-                                            <td>{tank.origin}</td>
-                                            <td>{tank.owner}</td>
-                                        </tr>
-                                    )
-                                })}
-                        </Accordion>
-                    )
-                })}
-            </div>
+            {tanks.length > 0 &&
+                <div className="mt-4">
+                    <h4>Vessels Grid</h4>
+                    {selectLabels[0].options.map((selectLabel, key) => {
+                        return (
+                            <Accordion key={key} header={selectLabel}>
+                                {tanks.filter(tank => tank.cylinderSize === selectLabel)
+                                    .map((tank, key) => {
+                                        return (
+                                            <tr key={key}>
+                                                <td>{tank.unimedId}</td>
+                                                <td>{tank.cyclinderSerialNumber}</td>
+                                                <td>{tank.cylinderSize}</td>
+                                                <td>{tank.origin}</td>
+                                                <td>{tank.owner}</td>
+                                            </tr>
+                                        )
+                                    })}
+                            </Accordion>
+                        )
+                    })}
+                </div>}
         </div>
     )
 }
