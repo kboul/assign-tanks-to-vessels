@@ -55,7 +55,7 @@ class Accordion extends Component {
     }
 }
 
-FaAngle.propTypes = {
+Accordion.propTypes = {
     isAccordionCollapsed: PropTypes.bool.isRequired,
     header: PropTypes.string,
     children: PropTypes.element
