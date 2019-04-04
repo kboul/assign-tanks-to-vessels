@@ -56,7 +56,7 @@ class Accordion extends Component {
 }
 
 Accordion.propTypes = {
-    isAccordionCollapsed: PropTypes.bool.isRequired,
+    isAccordionCollapsed: PropTypes.bool,
     header: PropTypes.string,
     children: PropTypes.element
 }
