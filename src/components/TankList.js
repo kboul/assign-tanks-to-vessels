@@ -66,6 +66,7 @@ const TankList = ({ registeredTanks,
                 {displayNumberOfTanks(registeredTanks)}
             </div>
             <ModalComp
+                header={'Assign Tanks To Vessels Grid'}
                 modal={isModalToAssignVesselVisible}
                 toggle={() => toggleModalToAssignVessel()}>
                 <div>new content</div>
