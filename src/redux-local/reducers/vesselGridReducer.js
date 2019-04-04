@@ -4,7 +4,8 @@ const initialState = {
     cylinderSize: '',
     tanks: [
         { unimedId: "12345", cyclinderSerialNumber: "999991", cylinderSize: "MOX-40", origin: "US", owner: "UNIMED" },
-        { unimedId: "3456", cyclinderSerialNumber: "999991", cylinderSize: "MOX-10", origin: "US", owner: "UNIMED" }
+        { unimedId: "3456", cyclinderSerialNumber: "999991", cylinderSize: "MOX-10", origin: "US", owner: "UNIMED" },
+        { unimedId: "46567", cyclinderSerialNumber: "343434", cylinderSize: "MOX-10", origin: "Greece", owner: "UNIMED" }
     ]
 }
 
