@@ -12,3 +12,8 @@ export const registerTank = tank => ({
 export const toggleModalToAssignVessel = () => ({
     type: TYPES.TOGGLE_MODAL_TO_ASSIGN_VESSEL
 })
+
+export const selectCylinderSize = cylinderSize => ({
+    type: TYPES.SELECT_CYLINDER_SIZE,
+    cylinderSize
+})
