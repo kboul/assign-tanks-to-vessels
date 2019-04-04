@@ -6,13 +6,8 @@ import {
     selectCylinderSize,
     populateVesselGridTanks
 } from '../redux-local/actions'
+import { displayNumberOfTanks } from '../utils/displayNumberOfTanks'
 import '../styles/TankList.css'
-
-const displayNumberOfTanks = tanks => {
-    if (tanks.length === 1)
-        return 'There is 1 registered tank.'
-    return `There are ${tanks.length} registered tanks.`
-}
 
 const TankList = ({ registeredTanks, populateVesselGridTanks }) => {
 
