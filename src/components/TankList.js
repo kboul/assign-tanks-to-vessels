@@ -1,7 +1,9 @@
 import React from 'react'
 import { connect } from 'react-redux'
 import { allLabels } from '../constants/tankLabels'
+import { toggleModalToAssignVessel } from '../redux-local/actions'
 import '../styles/TankList.css'
+import ModalComp from '../common/ModalComp';
 
 const displayNumberOfTanks = tanks => {
     if (tanks.length === 1)
@@ -9,7 +11,9 @@ const displayNumberOfTanks = tanks => {
     return `There are ${tanks.length} registered tanks.`
 }
 
-const TankList = ({ registeredTanks }) => {
+const TankList = ({ registeredTanks,
+    modal: { isModalToAssignVesselVisible }, toggleModalToAssignVessel }) => {
+
     if (registeredTanks.length === 0)
         return (
             <p className="mt-2">
@@ -31,6 +35,7 @@ const TankList = ({ registeredTanks }) => {
                                 </th>
                             )
                         })}
+                        <th>Assign Tank</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -44,6 +49,13 @@ const TankList = ({ registeredTanks }) => {
                                     <td>{cylinderSize}</td>
                                     <td>{origin}</td>
                                     <td>{owner}</td>
+                                    <td>
+                                        <button
+                                            className="btn btn-sm btn-primary"
+                                            onClick={() => toggleModalToAssignVessel()}>
+                                            Assign
+                                        </button>
+                                    </td>
                                 </tr>
                             </React.Fragment>
                         )
@@ -53,12 +65,20 @@ const TankList = ({ registeredTanks }) => {
             <div className="m-2">
                 {displayNumberOfTanks(registeredTanks)}
             </div>
+            <ModalComp
+                modal={isModalToAssignVesselVisible}
+                toggle={() => toggleModalToAssignVessel()}>
+                <div>new content</div>
+            </ModalComp>
         </React.Fragment>
     )
 }
 
 const mapStateToProps = state => ({
-    registeredTanks: state.tanks.registeredTanks
+    registeredTanks: state.tanks.registeredTanks,
+    modal: state.modal
 })
 
-export default connect(mapStateToProps)(TankList)
+export default connect(mapStateToProps, {
+    toggleModalToAssignVessel
+})(TankList)
