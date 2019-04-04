@@ -3,25 +3,28 @@ import { connect } from 'react-redux'
 import PropTypes from 'prop-types'
 import ModalComp from '../common/ModalComp'
 import RegisterTank from './RegisterTank'
-import { toggleModal } from '../redux-local/actions'
+import { toggleModalToRegisterTank } from '../redux-local/actions'
 import { registerTank } from '../redux-local/actions'
 import TankList from './TankList'
 import Accordion from '../common/Accordion'
 import { selectLabels } from '../constants/tankLabels'
 
-const Container = ({ modal: { isModalVisible }, toggleModal, registerTank, tank }) => {
+const Container = ({ modal: { isModalVisibleToRegisterTank },
+    toggleModalToRegisterTank, registerTank, tank }) => {
+
     return (
         <div>
             <button
                 className="btn btn-primary"
-                onClick={() => toggleModal()}>
+                onClick={() => toggleModalToRegisterTank()}>
                 Register Tank
             </button>
             <ModalComp
-                modal={isModalVisible}
-                toggle={() => toggleModal()}>
+                header={'Add New Tank'}
+                modal={isModalVisibleToRegisterTank}
+                toggle={() => toggleModalToRegisterTank()}>
                 <RegisterTank onSubmit={() => {
-                    toggleModal()
+                    toggleModalToRegisterTank()
                     registerTank(tank.values)
                 }} />
             </ModalComp>
@@ -37,7 +40,7 @@ const Container = ({ modal: { isModalVisible }, toggleModal, registerTank, tank 
 
 Container.propTypes = {
     modal: PropTypes.objectOf(Boolean).isRequired,
-    toggleModal: PropTypes.func.isRequired,
+    toggleModalToRegisterTank: PropTypes.func.isRequired,
     registerTank: PropTypes.func.isRequired,
     tank: PropTypes.object
 }
@@ -48,6 +51,6 @@ const mapStateToProps = state => ({
 })
 
 export default connect(mapStateToProps, {
-    toggleModal,
+    toggleModalToRegisterTank,
     registerTank
 })(Container)

@@ -1,15 +1,15 @@
 import { TYPES } from '../actions/types'
 
 const initialState = {
-    isModalVisible: false
+    isModalVisibleToRegisterTank: false,
 }
 
 function modalReducer(state = initialState, action) {
     switch (action.type) {
-        case TYPES.TOGGLE_MODAL:
+        case TYPES.TOGGLE_MODAL_TO_REGISTER_TANK:
             return {
                 ...state,
-                isModalVisible: !state.isModalVisible
+                isModalVisibleToRegisterTank: !state.isModalVisibleToRegisterTank
             }
         default:
             return state

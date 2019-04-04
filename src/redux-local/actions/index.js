@@ -1,7 +1,7 @@
 import { TYPES } from './types'
 
-export const toggleModal = () => ({
-    type: TYPES.TOGGLE_MODAL
+export const toggleModalToRegisterTank = () => ({
+    type: TYPES.TOGGLE_MODAL_TO_REGISTER_TANK
 })
 
 export const registerTank = tank => ({
