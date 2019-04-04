@@ -1,0 +1,10 @@
+#card { 
+    margin-bottom: 1rem;
+    font-size: 20px;
+}
+
+#cardHeader { 
+    cursor: pointer;
+    background-color: #4a5066;
+    color: #ffffff;
+}
