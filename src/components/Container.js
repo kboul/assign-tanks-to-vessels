@@ -10,7 +10,8 @@ import Accordion from '../common/Accordion'
 import { selectLabels } from '../constants/tankLabels'
 
 const Container = ({ modal: { isModalToRegisterTankVisible },
-    toggleModalToRegisterTank, registerTank, tank }) => {
+    toggleModalToRegisterTank, registerTank, tank,
+    assignedCylinder: { cylinders } }) => {
 
     return (
         <div>
@@ -35,7 +36,15 @@ const Container = ({ modal: { isModalToRegisterTankVisible },
             <div className="mt-4">
                 <h4>Vessels Grid</h4>
                 {selectLabels[0].options.map((tank, key) => {
-                    return <Accordion key={key} header={tank} />
+                    return (
+                        <Accordion key={key} header={tank}>
+                            {cylinders.filter(cylinder => cylinder.cylinderSize === tank).map((el, key) => {
+                                return <tr key={key}>
+                                    <td>{el.unimedId}</td>
+                                </tr>
+                            })}
+                        </Accordion>
+                    )
                 })}
             </div>
         </div>
@@ -46,12 +55,14 @@ Container.propTypes = {
     modal: PropTypes.objectOf(Boolean).isRequired,
     toggleModalToRegisterTank: PropTypes.func.isRequired,
     registerTank: PropTypes.func.isRequired,
-    tank: PropTypes.object
+    tank: PropTypes.object,
+    assignedCylinder: PropTypes.object.isRequired
 }
 
 const mapStateToProps = state => ({
     modal: state.modal,
-    tank: state.form.registerTank
+    tank: state.form.registerTank,
+    assignedCylinder: state.assignedCylinder
 })
 
 export default connect(mapStateToProps, {

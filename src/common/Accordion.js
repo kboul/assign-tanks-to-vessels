@@ -57,7 +57,7 @@ class Accordion extends Component {
 Accordion.propTypes = {
     isAccordionCollapsed: PropTypes.bool,
     header: PropTypes.string,
-    children: PropTypes.element
+    children: PropTypes.array
 }
 
 export default Accordion
