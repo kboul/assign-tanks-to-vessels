@@ -2,11 +2,7 @@ import { TYPES } from '../actions/types'
 
 const initialState = {
     cylinderSize: '',
-    tanks: [
-        { unimedId: "12345", cyclinderSerialNumber: "999991", cylinderSize: "MOX-40", origin: "US", owner: "UNIMED" },
-        { unimedId: "3456", cyclinderSerialNumber: "999991", cylinderSize: "MOX-10", origin: "US", owner: "UNIMED" },
-        { unimedId: "46567", cyclinderSerialNumber: "343434", cylinderSize: "MOX-10", origin: "Greece", owner: "UNIMED" }
-    ]
+    tanks: []
 }
 
 function vesselGridReducer(state = initialState, action) {
@@ -15,6 +11,15 @@ function vesselGridReducer(state = initialState, action) {
             return {
                 ...state,
                 cylinderSize: action.cylinderSize.values.selectCylinderSize
+            }
+
+        case TYPES.POPOULATE_VESSEL_GRID_TANKS:
+            return {
+                ...state,
+                tanks: [
+                    ...state.tanks,
+                    { ...action.tank }
+                ]
             }
         default:
             return state
