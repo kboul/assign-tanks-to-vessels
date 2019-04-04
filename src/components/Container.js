@@ -11,7 +11,7 @@ import { selectLabels } from '../constants/tankLabels'
 
 const Container = ({ modal: { isModalToRegisterTankVisible },
     toggleModalToRegisterTank, registerTank, tank,
-    assignedCylinder: { cylinders } }) => {
+    vesselGrid: { tanks } }) => {
 
     return (
         <div>
@@ -38,7 +38,7 @@ const Container = ({ modal: { isModalToRegisterTankVisible },
                 {selectLabels[0].options.map((tank, key) => {
                     return (
                         <Accordion key={key} header={tank}>
-                            {cylinders.filter(cylinder => cylinder.cylinderSize === tank).map((el, key) => {
+                            {tanks.filter(cylinder => cylinder.cylinderSize === tank).map((el, key) => {
                                 return <tr key={key}>
                                     <td>{el.unimedId}</td>
                                 </tr>
@@ -56,13 +56,13 @@ Container.propTypes = {
     toggleModalToRegisterTank: PropTypes.func.isRequired,
     registerTank: PropTypes.func.isRequired,
     tank: PropTypes.object,
-    assignedCylinder: PropTypes.object.isRequired
+    vesselGrid: PropTypes.object.isRequired
 }
 
 const mapStateToProps = state => ({
     modal: state.modal,
     tank: state.form.registerTank,
-    assignedCylinder: state.assignedCylinder
+    vesselGrid: state.vesselGrid
 })
 
 export default connect(mapStateToProps, {

@@ -2,13 +2,13 @@ import { combineReducers } from 'redux'
 import { reducer as formReducer } from 'redux-form'
 import modalReducer from './modalReducer'
 import tanksReducer from './tanksReducer'
-import assignedCylinderReducer from './assignedCylinderReducer'
+import vesselGridReducer from './vesselGridReducer'
 
 const rootReducer = combineReducers({
     form: formReducer,
     modal: modalReducer,
     tanks: tanksReducer,
-    assignedCylinder: assignedCylinderReducer
+    vesselGrid: vesselGridReducer
 })
 
 export default rootReducer

@@ -2,14 +2,13 @@ import { TYPES } from '../actions/types'
 
 const initialState = {
     cylinderSize: '',
-    cylinders: [
+    tanks: [
         { unimedId: "12345", cyclinderSerialNumber: "999991", cylinderSize: "MOX-40", origin: "US", owner: "UNIMED" },
         { unimedId: "3456", cyclinderSerialNumber: "999991", cylinderSize: "MOX-10", origin: "US", owner: "UNIMED" }
-
     ]
 }
 
-function assignedCylinderReducer(state = initialState, action) {
+function vesselGridReducer(state = initialState, action) {
     switch (action.type) {
         case TYPES.SELECT_CYLINDER_SIZE:
             return {
@@ -21,4 +20,4 @@ function assignedCylinderReducer(state = initialState, action) {
     }
 }
 
-export default assignedCylinderReducer
+export default vesselGridReducer
