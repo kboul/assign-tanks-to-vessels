@@ -3,7 +3,8 @@ import { connect } from 'react-redux'
 import PropTypes from 'prop-types'
 import { allLabels } from '../constants/tankLabels'
 import {
-    toggleModalToAssignVessel, selectCylinderSize
+    toggleModalToAssignVessel, selectCylinderSize,
+    populateVesselGridTanks
 } from '../redux-local/actions'
 import ModalComp from '../common/ModalComp'
 import '../styles/TankList.css'
@@ -17,7 +18,8 @@ const displayNumberOfTanks = tanks => {
 
 const TankList = ({ registeredTanks, cylinderSize,
     modal: { isModalToAssignVesselVisible },
-    toggleModalToAssignVessel, selectCylinderSize }) => {
+    toggleModalToAssignVessel, selectCylinderSize,
+    populateVesselGridTanks }) => {
 
     if (registeredTanks.length === 0)
         return (
@@ -57,8 +59,9 @@ const TankList = ({ registeredTanks, cylinderSize,
                                         <button
                                             className="btn btn-sm btn-primary"
                                             onClick={() => {
-                                                toggleModalToAssignVessel()
+                                                // toggleModalToAssignVessel()
                                                 console.log(tank)
+                                                populateVesselGridTanks(tank)
                                             }}>
                                             Assign
                                         </button>
@@ -88,18 +91,20 @@ const TankList = ({ registeredTanks, cylinderSize,
 TankList.propTypes = {
     registeredTanks: PropTypes.array.isRequired,
     modal: PropTypes.objectOf(Boolean).isRequired,
-    toggleModalToAssignVessel: PropTypes.func.isRequired,
     cylinderSize: PropTypes.object,
-    selectCylinderSize: PropTypes.func.isRequired
+    toggleModalToAssignVessel: PropTypes.func.isRequired,
+    selectCylinderSize: PropTypes.func.isRequired,
+    populateVesselGridTanks: PropTypes.func.isRequired
 }
 
 const mapStateToProps = state => ({
     registeredTanks: state.tanks.registeredTanks,
     modal: state.modal,
-    cylinderSize: state.form.selectCylinderSize
+    cylinderSize: state.form.selectCylinderSize,
 })
 
 export default connect(mapStateToProps, {
     toggleModalToAssignVessel,
-    selectCylinderSize
+    selectCylinderSize,
+    populateVesselGridTanks
 })(TankList)
