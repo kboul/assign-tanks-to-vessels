@@ -2,7 +2,9 @@ import React from 'react'
 import { connect } from 'react-redux'
 import PropTypes from 'prop-types'
 import { allLabels } from '../constants/tankLabels'
-import { toggleModalToAssignVessel } from '../redux-local/actions'
+import {
+    toggleModalToAssignVessel, selectCylinderSize
+} from '../redux-local/actions'
 import ModalComp from '../common/ModalComp'
 import '../styles/TankList.css'
 import SelectCylinderSize from './SelectCylinderSize'
@@ -13,9 +15,9 @@ const displayNumberOfTanks = tanks => {
     return `There are ${tanks.length} registered tanks.`
 }
 
-const TankList = ({ registeredTanks,
+const TankList = ({ registeredTanks, cylinderSize,
     modal: { isModalToAssignVesselVisible },
-    toggleModalToAssignVessel }) => {
+    toggleModalToAssignVessel, selectCylinderSize }) => {
 
     if (registeredTanks.length === 0)
         return (
@@ -76,6 +78,7 @@ const TankList = ({ registeredTanks,
                 toggle={() => toggleModalToAssignVessel()}>
                 <SelectCylinderSize onSubmit={() => {
                     toggleModalToAssignVessel()
+                    selectCylinderSize(cylinderSize)
                 }} />
             </ModalComp>
         </React.Fragment>
@@ -85,14 +88,18 @@ const TankList = ({ registeredTanks,
 TankList.propTypes = {
     registeredTanks: PropTypes.array.isRequired,
     modal: PropTypes.objectOf(Boolean).isRequired,
-    toggleModalToAssignVessel: PropTypes.func.isRequired
+    toggleModalToAssignVessel: PropTypes.func.isRequired,
+    cylinderSize: PropTypes.object,
+    selectCylinderSize: PropTypes.func.isRequired
 }
 
 const mapStateToProps = state => ({
     registeredTanks: state.tanks.registeredTanks,
-    modal: state.modal
+    modal: state.modal,
+    cylinderSize: state.form.selectCylinderSize
 })
 
 export default connect(mapStateToProps, {
-    toggleModalToAssignVessel
+    toggleModalToAssignVessel,
+    selectCylinderSize
 })(TankList)
