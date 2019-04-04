@@ -6,6 +6,8 @@ import RegisterTank from './RegisterTank'
 import { toggleModal } from '../redux-local/actions'
 import { registerTank } from '../redux-local/actions'
 import TankList from './TankList'
+import Accordion from '../common/Accordion'
+import { selectLabels } from '../constants/tankLabels'
 
 const Container = ({ modal: { isModalVisible }, toggleModal, registerTank, tank }) => {
     return (
@@ -25,6 +27,10 @@ const Container = ({ modal: { isModalVisible }, toggleModal, registerTank, tank 
             </ModalComp>
 
             <TankList />
+
+            {selectLabels[0].options.map((tank, key) => {
+                return <Accordion key={key} header={tank} />
+            })}
         </div>
     )
 }
