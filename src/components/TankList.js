@@ -12,37 +12,42 @@ const TankList = ({ registeredTanks }) => {
         )
 
     return (
-        <table className="table col-6 mt-4">
-            <thead>
-                <tr>
-                    {allLabels.map((label, key) => {
+        <React.Fragment>
+            <table className="table col-6 mt-4" id="tanksTable">
+                <thead>
+                    <tr>
+                        {allLabels.map((label, key) => {
+                            return (
+                                <th
+                                    key={key}
+                                    scope="col">
+                                    {label}
+                                </th>
+                            )
+                        })}
+                    </tr>
+                </thead>
+                <tbody>
+                    {registeredTanks.map(({ unimedId, cyclinderSerialNumber,
+                        cylinderSize, origin, owner }, key) => {
                         return (
-                            <th
-                                key={key}
-                                scope="col">
-                                {label}
-                            </th>
+                            <React.Fragment key={key}>
+                                <tr>
+                                    <td>{unimedId}</td>
+                                    <td>{cyclinderSerialNumber}</td>
+                                    <td>{cylinderSize}</td>
+                                    <td>{origin}</td>
+                                    <td>{owner}</td>
+                                </tr>
+                            </React.Fragment>
                         )
                     })}
-                </tr>
-            </thead>
-            <tbody>
-                {registeredTanks.map(({ unimedId, cyclinderSerialNumber,
-                    cylinderSize, origin, owner }, key) => {
-                    return (
-                        <React.Fragment key={key}>
-                            <tr>
-                                <td>{unimedId}</td>
-                                <td>{cyclinderSerialNumber}</td>
-                                <td>{cylinderSize}</td>
-                                <td>{origin}</td>
-                                <td>{owner}</td>
-                            </tr>
-                        </React.Fragment>
-                    )
-                })}
-            </tbody>
-        </table>
+                </tbody>
+            </table>
+            <div className="m-2">
+                There are {registeredTanks.length} registered tanks.
+            </div>
+        </React.Fragment>
     )
 }
 
