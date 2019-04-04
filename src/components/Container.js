@@ -32,7 +32,7 @@ const Container = ({ modal: { isModalToRegisterTankVisible },
 
             <TankList />
 
-            <div>
+            <div className="mt-4">
                 <h4>Vessels Grid</h4>
                 {selectLabels[0].options.map((tank, key) => {
                     return <Accordion key={key} header={tank} />
