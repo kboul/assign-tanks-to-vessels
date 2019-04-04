@@ -3,6 +3,12 @@ import { connect } from 'react-redux'
 import { allLabels } from '../constants/tankLabels'
 import '../styles/TankList.css'
 
+const displayNumberOfTanks = tanks => {
+    if (tanks.length === 1)
+        return 'There is 1 registered tank.'
+    return `There are ${tanks.length} registered tanks.`
+}
+
 const TankList = ({ registeredTanks }) => {
     if (registeredTanks.length === 0)
         return (
@@ -45,7 +51,7 @@ const TankList = ({ registeredTanks }) => {
                 </tbody>
             </table>
             <div className="m-2">
-                There are {registeredTanks.length} registered tanks.
+                {displayNumberOfTanks(registeredTanks)}
             </div>
         </React.Fragment>
     )
