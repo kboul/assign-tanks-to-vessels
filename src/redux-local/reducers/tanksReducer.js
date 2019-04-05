@@ -1,4 +1,5 @@
 import { TYPES } from '../actions/types'
+import { generateId } from '../../utils/generateId'
 
 const initialState = {
     registeredTanks: []
@@ -11,7 +12,10 @@ function tanksReducer(state = initialState, action) {
                 ...state,
                 registeredTanks: [
                     ...state.registeredTanks,
-                    { ...action.tank }
+                    {
+                        ...action.tank,
+                        id: generateId()
+                    }
                 ]
             }
         default:
