@@ -4,7 +4,7 @@ import { vesselList } from '../constants/vessels'
 const VesselList = () => {
     return (
         <React.Fragment>
-            <h4 className="mt-4">Vessel List</h4>
+            <h4 className="mt-2">Vessel List</h4>
             <table className="table mt-2" id="tanksTable">
                 <thead>
                     <tr>
