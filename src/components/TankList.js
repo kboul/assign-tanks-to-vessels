@@ -53,7 +53,7 @@ const TankList = ({ registeredTanks, populateVesselGridTanks,
                                             onClick={() => {
                                                 console.log(tank)
                                                 populateVesselGridTanks(tank)
-                                                removeTankFromRegistered(tank)
+                                                removeTankFromRegistered(tank.id)
                                             }}>
                                             Assign
                                         </button>

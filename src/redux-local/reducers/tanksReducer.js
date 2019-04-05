@@ -18,6 +18,13 @@ function tanksReducer(state = initialState, action) {
                     }
                 ]
             }
+        case TYPES.REMOVE_TANK_FROM_REGISTERED:
+            const tanks = state.registeredTanks
+                .filter(tank => tank.id !== action.tankId)
+            return {
+                ...state,
+                registeredTanks: [...tanks]
+            }
         default:
             return state
     }
