@@ -7,11 +7,4 @@ export const vesselList = [
     { name: 'Janna', flag: 'Denmark' }
 ]
 
-export const vessels = [
-    'Astoria',
-    'Lady Gloria',
-    '17th October',
-    'Jela Delta',
-    'Claudia',
-    'Janna'
-]
+export const vessels = [...vesselList.map(({ name }) => name)]
