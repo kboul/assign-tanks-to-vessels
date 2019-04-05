@@ -16,6 +16,8 @@ const Container = ({ modal: { isModalToRegisterTankVisible },
 
     return (
         <div>
+            <VesselList />
+
             <button
                 className="btn btn-primary"
                 onClick={() => toggleModalToRegisterTank()}>
@@ -31,8 +33,6 @@ const Container = ({ modal: { isModalToRegisterTankVisible },
                     registerTank(tank.values)
                 }} />
             </ModalComp>
-
-            <VesselList />
 
             <TankList />
 
