@@ -8,6 +8,7 @@ import { registerTank } from '../redux-local/actions'
 import TankList from './TankList'
 import Accordion from '../common/Accordion'
 import { selectLabels } from '../constants/tankLabels'
+import VesselList from './VesselList'
 
 const Container = ({ modal: { isModalToRegisterTankVisible },
     toggleModalToRegisterTank, registerTank, tank,
@@ -30,6 +31,8 @@ const Container = ({ modal: { isModalToRegisterTankVisible },
                     registerTank(tank.values)
                 }} />
             </ModalComp>
+
+            <VesselList />
 
             <TankList />
 
