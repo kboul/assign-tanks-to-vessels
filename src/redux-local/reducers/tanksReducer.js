@@ -8,6 +8,19 @@ const initialState = {
 function tanksReducer(state = initialState, action) {
     switch (action.type) {
         case TYPES.REGISTER_TANK:
+            // if tank has same unimedId with another one don't store it
+            const checkIfTankHasSameId = state.registeredTanks
+                .filter(tank => tank.unimedId === action.tank.unimedId)
+
+            if (checkIfTankHasSameId.length > 0) {
+                return {
+                    ...state,
+                    registeredTanks: [
+                        ...state.registeredTanks
+                    ]
+                }
+            }
+
             return {
                 ...state,
                 registeredTanks: [
