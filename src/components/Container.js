@@ -36,7 +36,7 @@ const Container = ({ modal: { isModalToRegisterTankVisible },
 
             <TankList />
 
-            {tanks.length > 0 &&
+            {/* {tanks.length > 0 &&
                 <div className="mt-4">
                     <h4>Vessels Grid</h4>
                     {selectLabels[0].options.map((selectLabel, key) => {
@@ -57,7 +57,7 @@ const Container = ({ modal: { isModalToRegisterTankVisible },
                             </Accordion>
                         )
                     })}
-                </div>}
+                </div>} */}
         </div>
     )
 }
