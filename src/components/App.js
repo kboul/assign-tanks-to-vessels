@@ -5,11 +5,11 @@ const App = () => {
     return (
         <div className="container mt-2">
             <div className="row">
-                <div className="col-3"></div>
-                <div className="col-6">
+                <div className="col-2"></div>
+                <div className="col-8">
                     <Container />
                 </div>
-                <div className="col-3"></div>
+                <div className="col-2"></div>
             </div>
         </div>
     )
