@@ -8,11 +8,12 @@ const initialState = {
 function tanksReducer(state = initialState, action) {
     switch (action.type) {
         case TYPES.REGISTER_TANK:
-            // if tank has same unimedId with another one don't store it
-            const checkIfTankHasSameId = state.registeredTanks
+            // if a tank has same unimedId with an existing one 
+            // don't store it and return current registeredTanks state
+            const tankHasSameIdWithExisting = state.registeredTanks
                 .filter(tank => tank.unimedId === action.tank.unimedId)
 
-            if (checkIfTankHasSameId.length > 0) {
+            if (tankHasSameIdWithExisting.length > 0) {
                 return {
                     ...state,
                     registeredTanks: [
@@ -21,6 +22,8 @@ function tanksReducer(state = initialState, action) {
                 }
             }
 
+            // otherwise return the previous state plus the
+            // registered new tank
             return {
                 ...state,
                 registeredTanks: [
@@ -52,20 +55,21 @@ function tanksReducer(state = initialState, action) {
                 }
             })
 
-            // update the specific tank object by injecting the vessel name
-            const newObj = state.registeredTanks[index] = {
+            // update the specific tank object instance
+            //  by maintaining it & injecting the vessel name
+            const tankObjectWithVessel = state.registeredTanks[index] = {
                 ...state.registeredTanks[index],
                 vessel: action.vessselName
             }
 
-            // cut the previous element
-            const sliceArray = state.registeredTanks.slice(0, index)
+            // remove the previous tank object instance
+            const removePreviousTankObject = state.registeredTanks.slice(0, index)
 
             return {
                 ...state,
                 registeredTanks: [
-                    ...sliceArray,
-                    newObj
+                    ...removePreviousTankObject,
+                    tankObjectWithVessel
                 ]
             }
         default:
