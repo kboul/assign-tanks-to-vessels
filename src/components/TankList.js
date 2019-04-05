@@ -76,7 +76,7 @@ const TankList = ({ tanks: { registeredTanks },
             </div>
 
             <ModalComp
-                header={'Vessels List'}
+                header={'Assign Tank To Vessel'}
                 modal={isModalToAssignTankToVesselVisible}
                 toggle={() => toggleModalToAssignTankToVessel()}>
                 <SelectVessel onSubmit={() => {
