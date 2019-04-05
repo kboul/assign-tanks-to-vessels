@@ -18,9 +18,13 @@ const VesselList = ({ selectVesselGrid }) => {
                 <tbody>
                     {vesselList.map(({ name, flag }, key) => {
                         return (
-                            <tr
+                            <tr style={{ cursor: 'pointer' }}
                                 key={key}
-                                onClick={() => selectVesselGrid(name)}>
+                                onClick={() => {
+                                    selectVesselGrid(name)
+                                    console.log(key)
+                                }
+                                }>
                                 <td>{name}</td>
                                 <td>{flag}</td>
                             </tr>
