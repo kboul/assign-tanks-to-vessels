@@ -14,11 +14,6 @@ export const removeTankFromRegistered = tank => ({
     tank
 })
 
-export const selectCylinderSize = cylinderSize => ({
-    type: TYPES.SELECT_CYLINDER_SIZE,
-    cylinderSize
-})
-
 export const populateVesselGridTanks = tank => ({
     type: TYPES.POPOULATE_VESSEL_GRID_TANKS,
     tank

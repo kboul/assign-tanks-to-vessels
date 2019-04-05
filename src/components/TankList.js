@@ -4,7 +4,6 @@ import PropTypes from 'prop-types'
 import ModalComp from '../common/ModalComp'
 import SelectVessel from './SelectVessel'
 import {
-    selectCylinderSize,
     toggleModalToAssignTankToVessel,
     selectTank,
     assignTankToVessel
@@ -92,19 +91,16 @@ TankList.propTypes = {
     tanks: PropTypes.object.isRequired,
     modal: PropTypes.objectOf(Boolean).isRequired,
     cylinderSize: PropTypes.object,
-    selectCylinderSize: PropTypes.func.isRequired,
     assignTankToVessel: PropTypes.func.isRequired
 }
 
 const mapStateToProps = state => ({
     tanks: state.tanks,
     modal: state.modal,
-    cylinderSize: state.form.selectCylinderSize,
     vessel: state.form.selectVessel
 })
 
 export default connect(mapStateToProps, {
-    selectCylinderSize,
     toggleModalToAssignTankToVessel,
     selectTank,
     assignTankToVessel
