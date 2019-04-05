@@ -2,7 +2,8 @@ import { TYPES } from '../actions/types'
 
 const initialState = {
     registeredTanks: [],
-    selectedTank: {}
+    selectedTank: {},
+    selectedVesselFromList: ''
 }
 
 function tanksReducer(state = initialState, action) {
@@ -71,6 +72,11 @@ function tanksReducer(state = initialState, action) {
                     ...removePreviousTankObject,
                     tankObjectWithVessel
                 ]
+            }
+        case TYPES.SELECT_FROM_VESSEL_LIST:
+            return {
+                ...state,
+                selectedVesselFromList: action.vessel
             }
         default:
             return state

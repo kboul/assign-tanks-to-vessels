@@ -9,11 +9,6 @@ export const registerTank = tank => ({
     tank
 })
 
-export const removeTankFromRegistered = tank => ({
-    type: TYPES.REMOVE_TANK_FROM_REGISTERED,
-    tank
-})
-
 export const populateVesselGridTanks = tank => ({
     type: TYPES.POPOULATE_VESSEL_GRID_TANKS,
     tank
@@ -31,4 +26,9 @@ export const toggleModalToAssignTankToVessel = () => ({
 export const selectTank = tank => ({
     type: TYPES.SELECTED_TANK,
     tank
+})
+
+export const selectVesselGrid = vessel => ({
+    type: TYPES.SELECT_FROM_VESSEL_LIST,
+    vessel
 })

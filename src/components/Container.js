@@ -12,12 +12,10 @@ import { selectLabels } from '../constants/tankLabels'
 
 const Container = ({ modal: { isModalToRegisterTankVisible },
     toggleModalToRegisterTank, registerTank, tank,
-    tanks: { registeredTanks } }) => {
+    tanks: { registeredTanks, selectedVesselFromList } }) => {
 
     return (
         <div>
-            <VesselList />
-
             <button
                 className="btn btn-primary"
                 onClick={() => toggleModalToRegisterTank()}>
@@ -36,6 +34,8 @@ const Container = ({ modal: { isModalToRegisterTankVisible },
 
             <TankList />
 
+            <VesselList />
+
             {registeredTanks.length > 0 &&
                 <div className="mt-4">
                     <h4>Vessels Grid</h4>
@@ -44,7 +44,7 @@ const Container = ({ modal: { isModalToRegisterTankVisible },
                             <Accordion key={key} header={selectLabel}>
                                 {registeredTanks
                                     .filter(tank => tank.cylinderSize === selectLabel
-                                        && tank.vessel === 'Astoria')
+                                        && tank.vessel === selectedVesselFromList)
                                     .map((tank, key) => {
                                         return (
                                             <tr key={key}>

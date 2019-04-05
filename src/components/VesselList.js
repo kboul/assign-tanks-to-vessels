@@ -1,10 +1,13 @@
 import React from 'react'
+import { connect } from 'react-redux'
+import PropTypes from 'prop-types'
 import { vesselList } from '../constants/vessels'
+import { selectVesselGrid } from '../redux-local/actions'
 
-const VesselList = () => {
+const VesselList = ({ selectVesselGrid }) => {
     return (
-        <React.Fragment>
-            <h4 className="mt-2">Vessel List</h4>
+        <div className="mt-4 mb-4">
+            <h4 >Vessel List</h4>
             <table className="table mt-2" id="tanksTable">
                 <thead>
                     <tr>
@@ -15,7 +18,9 @@ const VesselList = () => {
                 <tbody>
                     {vesselList.map(({ name, flag }, key) => {
                         return (
-                            <tr key={key}>
+                            <tr
+                                key={key}
+                                onClick={() => selectVesselGrid(name)}>
                                 <td>{name}</td>
                                 <td>{flag}</td>
                             </tr>
@@ -23,8 +28,14 @@ const VesselList = () => {
                     })}
                 </tbody>
             </table>
-        </React.Fragment>
+        </div>
     )
 }
 
-export default VesselList
+VesselList.propTypes = {
+    selectVesselGrid: PropTypes.func.isRequired
+}
+
+export default connect(null, {
+    selectVesselGrid
+})(VesselList)
