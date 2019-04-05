@@ -9,9 +9,9 @@ export const registerTank = tank => ({
     tank
 })
 
-export const removeTankFromRegistered = tank => ({
+export const removeTankFromRegistered = tankId => ({
     type: TYPES.REMOVE_TANK_FROM_REGISTERED,
-    tank
+    tankId
 })
 
 export const selectCylinderSize = cylinderSize => ({
