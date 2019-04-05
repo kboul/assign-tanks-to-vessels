@@ -6,3 +6,12 @@ export const vesselList = [
     { name: 'Claudia', flag: 'Malta' },
     { name: 'Janna', flag: 'Denmark' }
 ]
+
+export const vessels = [
+    'Astoria',
+    'Lady Gloria',
+    '17th October',
+    'Jela Delta',
+    'Claudia',
+    'Janna'
+]
