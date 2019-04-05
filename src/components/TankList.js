@@ -4,12 +4,14 @@ import PropTypes from 'prop-types'
 import { allLabels } from '../constants/tankLabels'
 import {
     selectCylinderSize,
-    populateVesselGridTanks
+    populateVesselGridTanks,
+    removeTankFromRegistered
 } from '../redux-local/actions'
 import { displayNumberOfTanks } from '../utils/displayNumberOfTanks'
 import '../styles/TankList.css'
 
-const TankList = ({ registeredTanks, populateVesselGridTanks }) => {
+const TankList = ({ registeredTanks, populateVesselGridTanks,
+    removeTankFromRegistered }) => {
 
     if (registeredTanks.length === 0)
         return (
@@ -51,6 +53,7 @@ const TankList = ({ registeredTanks, populateVesselGridTanks }) => {
                                             onClick={() => {
                                                 console.log(tank)
                                                 populateVesselGridTanks(tank)
+                                                removeTankFromRegistered(tank)
                                             }}>
                                             Assign
                                         </button>
@@ -73,7 +76,8 @@ TankList.propTypes = {
     modal: PropTypes.objectOf(Boolean).isRequired,
     cylinderSize: PropTypes.object,
     selectCylinderSize: PropTypes.func.isRequired,
-    populateVesselGridTanks: PropTypes.func.isRequired
+    populateVesselGridTanks: PropTypes.func.isRequired,
+    removeTankFromRegistered: PropTypes.func.isRequired
 }
 
 const mapStateToProps = state => ({
@@ -84,5 +88,6 @@ const mapStateToProps = state => ({
 
 export default connect(mapStateToProps, {
     selectCylinderSize,
-    populateVesselGridTanks
+    populateVesselGridTanks,
+    removeTankFromRegistered
 })(TankList)
