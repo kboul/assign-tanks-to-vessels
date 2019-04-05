@@ -1,17 +1,23 @@
 import React from 'react'
 import { connect } from 'react-redux'
 import PropTypes from 'prop-types'
-import { allLabels } from '../constants/tankLabels'
+import ModalComp from '../common/ModalComp'
+import SelectVessel from './SelectVessel'
 import {
     selectCylinderSize,
-    populateVesselGridTanks,
-    removeTankFromRegistered
+    toggleModalToAssignTankToVessel,
+    selectTank,
+    assignTankToVessel
 } from '../redux-local/actions'
+import { allLabels } from '../constants/tankLabels'
 import { displayNumberOfTanks } from '../utils/displayNumberOfTanks'
 import '../styles/TankList.css'
 
-const TankList = ({ registeredTanks, populateVesselGridTanks,
-    removeTankFromRegistered }) => {
+
+const TankList = ({ tanks: { registeredTanks },
+    modal: { isModalToAssignTankToVesselVisible },
+    toggleModalToAssignTankToVessel, selectTank,
+    assignTankToVessel, vessel }) => {
 
     if (registeredTanks.length === 0)
         return (
@@ -34,7 +40,7 @@ const TankList = ({ registeredTanks, populateVesselGridTanks,
                                 </th>
                             )
                         })}
-                        <th>Assign Tank</th>
+                        <th>Assign Tank To Vessel</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -52,8 +58,8 @@ const TankList = ({ registeredTanks, populateVesselGridTanks,
                                             className="btn btn-sm btn-primary"
                                             onClick={() => {
                                                 console.log(tank)
-                                                populateVesselGridTanks(tank)
-                                                removeTankFromRegistered(tank)
+                                                selectTank(tank)
+                                                toggleModalToAssignTankToVessel()
                                             }}>
                                             Assign
                                         </button>
@@ -64,30 +70,42 @@ const TankList = ({ registeredTanks, populateVesselGridTanks,
                     })}
                 </tbody>
             </table>
+
             <div className="m-2">
                 {displayNumberOfTanks(registeredTanks)}
             </div>
+
+            <ModalComp
+                header={'Vessels List'}
+                modal={isModalToAssignTankToVesselVisible}
+                toggle={() => toggleModalToAssignTankToVessel()}>
+                <SelectVessel onSubmit={() => {
+                    assignTankToVessel(vessel.values.selectVessel)
+                    toggleModalToAssignTankToVessel()
+                }} />
+            </ModalComp>
         </React.Fragment>
     )
 }
 
 TankList.propTypes = {
-    registeredTanks: PropTypes.array.isRequired,
+    tanks: PropTypes.object.isRequired,
     modal: PropTypes.objectOf(Boolean).isRequired,
     cylinderSize: PropTypes.object,
     selectCylinderSize: PropTypes.func.isRequired,
-    populateVesselGridTanks: PropTypes.func.isRequired,
-    removeTankFromRegistered: PropTypes.func.isRequired
+    assignTankToVessel: PropTypes.func.isRequired
 }
 
 const mapStateToProps = state => ({
-    registeredTanks: state.tanks.registeredTanks,
+    tanks: state.tanks,
     modal: state.modal,
     cylinderSize: state.form.selectCylinderSize,
+    vessel: state.form.selectVessel
 })
 
 export default connect(mapStateToProps, {
     selectCylinderSize,
-    populateVesselGridTanks,
-    removeTankFromRegistered
+    toggleModalToAssignTankToVessel,
+    selectTank,
+    assignTankToVessel
 })(TankList)

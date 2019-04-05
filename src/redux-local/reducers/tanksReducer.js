@@ -1,7 +1,8 @@
 import { TYPES } from '../actions/types'
 
 const initialState = {
-    registeredTanks: []
+    registeredTanks: [],
+    selectedTank: {}
 }
 
 function tanksReducer(state = initialState, action) {
@@ -33,6 +34,39 @@ function tanksReducer(state = initialState, action) {
             return {
                 ...state,
                 registeredTanks: [...tanks]
+            }
+        case TYPES.SELECTED_TANK:
+            return {
+                ...state,
+                selectedTank: {
+                    ...action.tank
+                }
+            }
+        case TYPES.ASSIGN_TANK_TO_VESSEL:
+            // find the array index which contains the tank to assign vessel
+            let index
+            state.registeredTanks.forEach(tank => {
+                if (tank.unimedId === state.selectedTank.unimedId) {
+                    index = state.registeredTanks
+                        .findIndex(tank => tank.unimedId === state.selectedTank.unimedId)
+                }
+            })
+
+            // update the specific tank object by injecting the vessel name
+            const newObj = state.registeredTanks[index] = {
+                ...state.registeredTanks[index],
+                vessel: action.vessselName
+            }
+
+            // cut the previous element
+            const sliceArray = state.registeredTanks.slice(0, index)
+
+            return {
+                ...state,
+                registeredTanks: [
+                    ...sliceArray,
+                    newObj
+                ]
             }
         default:
             return state
