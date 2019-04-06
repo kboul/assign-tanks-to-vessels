@@ -15,6 +15,7 @@ class VesselList extends Component {
     }
 
     render() {
+        const { selectVesselGrid } = this.props
         return (
             <div className="mt-4 mb-4">
                 <h4 >Vessel List</h4>
@@ -33,7 +34,7 @@ class VesselList extends Component {
                                     key={index}
                                     onClick={() => {
                                         this.handleChangeId(index)
-                                        this.props.selectVesselGrid(name)
+                                        selectVesselGrid(name)
                                     }}>
                                     <td>{name}</td>
                                     <td>{flag}</td>
