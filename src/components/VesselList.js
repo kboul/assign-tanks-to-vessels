@@ -42,7 +42,10 @@ class VesselList extends Component {
                         })}
                     </tbody>
                 </table>
-                <p>Select a Vessel from table to display correspondent Vessels Grid</p>
+                <p className="text-center">
+                    Select a Vessel from above table to
+                    display oxygen tanks per ship.
+                </p>
             </div>
         )
     }
