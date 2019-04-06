@@ -2,7 +2,7 @@ import React from 'react'
 import { reduxForm } from "redux-form"
 import PropTypes from 'prop-types'
 import Select from '../common/Select'
-import { vessels } from '../constants/vessels';
+import { vessels } from '../constants/vessels'
 
 const SelectVessel = ({ handleSubmit, submitting }) => {
     return (
