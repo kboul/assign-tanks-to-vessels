@@ -9,11 +9,6 @@ export const registerTank = tank => ({
     tank
 })
 
-export const populateVesselGridTanks = tank => ({
-    type: TYPES.POPOULATE_VESSEL_GRID_TANKS,
-    tank
-})
-
 export const assignTankToVessel = vessselName => ({
     type: TYPES.ASSIGN_TANK_TO_VESSEL,
     vessselName
