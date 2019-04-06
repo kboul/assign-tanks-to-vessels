@@ -42,6 +42,7 @@ class VesselList extends Component {
                         })}
                     </tbody>
                 </table>
+                <p>Select a Vessel from table to display correspondent Vessels Grid</p>
             </div>
         )
     }
