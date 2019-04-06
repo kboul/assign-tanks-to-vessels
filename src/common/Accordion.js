@@ -2,7 +2,6 @@ import React, { Component } from 'react'
 import PropTypes from 'prop-types'
 import { Collapse, CardBody, Card, CardHeader } from 'reactstrap'
 import FaAngle from './FaAngle'
-import { allLabelsAbbreviation } from '../constants/tankLabels'
 import '../styles/Accordion.css'
 
 class Accordion extends Component {
@@ -16,6 +15,7 @@ class Accordion extends Component {
 
     render() {
         const { header, children } = this.props
+        const { collapse } = this.state
         return (
             <div className="row no-gutters">
                 <div className="col">
@@ -23,29 +23,12 @@ class Accordion extends Component {
                         <CardHeader
                             id='cardHeader'
                             onClick={this.toggle}>
-                            <FaAngle isAccordionCollapsed={this.state.collapse} />
+                            <FaAngle isAccordionCollapsed={collapse} />
                             &nbsp; {header}
                         </CardHeader>
-                        <Collapse isOpen={this.state.collapse}>
+                        <Collapse isOpen={collapse}>
                             <CardBody>
-                                <table className="table">
-                                    <thead style={{ fontSize: '16px' }}>
-                                        <tr>
-                                            {allLabelsAbbreviation.map((label, key) => {
-                                                return (
-                                                    <th
-                                                        key={key}
-                                                        scope="col">
-                                                        {label}
-                                                    </th>
-                                                )
-                                            })}
-                                        </tr>
-                                    </thead>
-                                    <tbody>
-                                        {children}
-                                    </tbody>
-                                </table>
+                                {children}
                             </CardBody>
                         </Collapse>
                     </Card>
@@ -58,7 +41,7 @@ class Accordion extends Component {
 Accordion.propTypes = {
     isAccordionCollapsed: PropTypes.bool,
     header: PropTypes.string,
-    children: PropTypes.array.isRequired
+    children: PropTypes.object.isRequired
 }
 
 export default Accordion
