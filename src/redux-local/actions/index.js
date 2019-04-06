@@ -9,9 +9,9 @@ export const registerTank = tank => ({
     tank
 })
 
-export const assignTankToVessel = vessselName => ({
+export const assignTankToVessel = vesselName => ({
     type: TYPES.ASSIGN_TANK_TO_VESSEL,
-    vessselName
+    vesselName
 })
 
 export const toggleModalToAssignTankToVessel = () => ({

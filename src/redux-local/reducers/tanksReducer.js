@@ -54,7 +54,7 @@ function tanksReducer(state = initialState, action) {
             // the vessel name
             const tankToAssignVessel = state.registeredTanks[index] = {
                 ...state.registeredTanks[index],
-                vessel: action.vessselName
+                vessel: action.vesselName
             }
 
             // collect all remaining tank objects apart 
