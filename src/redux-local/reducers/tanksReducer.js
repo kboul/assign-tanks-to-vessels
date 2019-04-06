@@ -1,10 +1,12 @@
 import { TYPES } from '../actions/types'
 import { assignFlagToVessel } from '../../utils/assignFlagToVessel'
+import { oxygenTankPerFlag } from '../../utils/oxygenTanksPerFlag'
 
 const initialState = {
     registeredTanks: [],
     selectedTank: {},
-    selectedVesselFromList: ''
+    selectedVesselFromList: '',
+    flagConstraint: false
 }
 
 function tanksReducer(state = initialState, action) {
@@ -41,11 +43,16 @@ function tanksReducer(state = initialState, action) {
                 }
             }
         case TYPES.ASSIGN_TANK_TO_VESSEL:
+            // store tanks to a shorter variable
+            const tanks = state.registeredTanks
+            // revert constraint message
+            state.flagConstraint = false
+
             // find the array index which contains the tank to assign vessel
             let index
-            state.registeredTanks.forEach(tank => {
+            tanks.forEach(tank => {
                 if (tank.unimedId === state.selectedTank.unimedId) {
-                    index = state.registeredTanks
+                    index = tanks
                         .findIndex(tank => tank.unimedId === state.selectedTank.unimedId)
                 }
             })
@@ -53,16 +60,55 @@ function tanksReducer(state = initialState, action) {
             // update the specific tank object instance
             // by spreading it in the array & injecting 
             // the vessel name
-            const tankToAssignVessel = state.registeredTanks[index] = {
-                ...state.registeredTanks[index],
+            const tankToAssignVessel = tanks[index] = {
+                ...tanks[index],
                 vessel: action.vesselName,
                 flag: assignFlagToVessel(action.vesselName)
             }
 
             // collect all remaining tank objects apart 
             // from the one that was previously modified
-            const deriveRestOfTanks = state.registeredTanks
-                .filter(tank => tank.unimedId !== state.registeredTanks[index].unimedId)
+            const deriveRestOfTanks = tanks
+                .filter(tank => tank.unimedId !== tanks[index].unimedId)
+
+            // apply cylinder type constraints per vessel flag 
+            const greeceMox40 = oxygenTankPerFlag(tanks, 'Greece', 'MOX-40')
+            const greeceMox10 = oxygenTankPerFlag(tanks, 'Greece', 'MOX-10')
+            const greeceMox5 = oxygenTankPerFlag(tanks, 'Greece', 'MOX-5')
+            const greeceMox2 = oxygenTankPerFlag(tanks, 'Greece', 'MOX-2')
+
+            const maltaMox40 = oxygenTankPerFlag(tanks, 'Malta', 'MOX-40')
+            const maltaMox10 = oxygenTankPerFlag(tanks, 'Malta', 'MOX-10')
+            const maltaMox5 = oxygenTankPerFlag(tanks, 'Malta', 'MOX-5')
+            const maltaMox2 = oxygenTankPerFlag(tanks, 'Malta', 'MOX-2')
+
+            const netherlandsMox40 = oxygenTankPerFlag(tanks, 'Netherlands', 'MOX-40')
+            const netherlandsMox10 = oxygenTankPerFlag(tanks, 'Netherlands', 'MOX-10')
+            const netherlandsMox5 = oxygenTankPerFlag(tanks, 'Netherlands', 'MOX-5')
+            const netherlandsMox2 = oxygenTankPerFlag(tanks, 'Netherlands', 'MOX-2')
+
+            const denmarkMox40 = oxygenTankPerFlag(tanks, 'Denmark', 'MOX-40')
+            const denmarkMox10 = oxygenTankPerFlag(tanks, 'Denmark', 'MOX-10')
+            const denmarkMox5 = oxygenTankPerFlag(tanks, 'Denmark', 'MOX-5')
+            const denmarkMox2 = oxygenTankPerFlag(tanks, 'Denmark', 'MOX-2')
+
+            if (greeceMox40 > 2 || greeceMox10 > 4 || greeceMox5 > 2 || greeceMox2 > 2
+                || maltaMox40 > 1 || maltaMox10 > 2 || maltaMox5 > 0 || maltaMox2 > 6
+                || netherlandsMox40 > 2 || netherlandsMox10 > 2 || netherlandsMox5 > 1 || netherlandsMox2 > 3
+                || denmarkMox40 > 3 || denmarkMox10 > 4 || denmarkMox5 > 2 || denmarkMox2 > 1) {
+                // display constraint message
+                state.flagConstraint = true
+                return {
+                    ...state,
+                    registeredTanks: [
+                        ...deriveRestOfTanks,
+                        tanks[index] = {
+                            ...tanks[index],
+                            vessel: ''
+                        }
+                    ]
+                }
+            }
 
             return {
                 ...state,

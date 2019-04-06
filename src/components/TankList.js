@@ -3,6 +3,7 @@ import { connect } from 'react-redux'
 import PropTypes from 'prop-types'
 import ModalComp from '../common/ModalComp'
 import SelectVessel from './SelectVessel'
+import AlertDanger from '../common/AlertDanger'
 import {
     toggleModalToAssignTankToVessel,
     selectTank,
@@ -13,7 +14,7 @@ import { displayNumberOfTanks } from '../utils/displayNumberOfTanks'
 import '../styles/TankList.css'
 
 
-const TankList = ({ tanks: { registeredTanks },
+const TankList = ({ tanks: { registeredTanks, flagConstraint },
     modal: { isModalToAssignTankToVesselVisible },
     toggleModalToAssignTankToVessel, selectTank,
     assignTankToVessel, vessel }) => {
@@ -74,6 +75,8 @@ const TankList = ({ tanks: { registeredTanks },
             <div className="m-2">
                 {displayNumberOfTanks(registeredTanks)}
             </div>
+
+            <AlertDanger flagConstraint={flagConstraint} />
 
             <ModalComp
                 header={'Assign Tank To Vessel'}
