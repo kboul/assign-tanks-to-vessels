@@ -27,7 +27,8 @@ const TankList = ({ tanks: { registeredTanks },
 
     return (
         <React.Fragment>
-            <table className="table mt-4" id="tanksTable">
+            <h4 className="mt-4">Pool of Registered Oxygen Tanks</h4>
+            <table className="table mt-2" id="tanksTable">
                 <thead>
                     <tr>
                         {allLabels.map((label, key) => {
