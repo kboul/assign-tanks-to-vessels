@@ -7,7 +7,7 @@ import '../styles/Accordion.css'
 
 class Accordion extends Component {
     state = {
-        collapse: false
+        collapse: true
     }
 
     toggle = () => {
@@ -15,6 +15,7 @@ class Accordion extends Component {
     }
 
     render() {
+        const { header, children } = this.props
         return (
             <div className="row no-gutters">
                 <div className="col">
@@ -23,7 +24,7 @@ class Accordion extends Component {
                             id='cardHeader'
                             onClick={this.toggle}>
                             <FaAngle isAccordionCollapsed={this.state.collapse} />
-                            &nbsp; {this.props.header}
+                            &nbsp; {header}
                         </CardHeader>
                         <Collapse isOpen={this.state.collapse}>
                             <CardBody>
@@ -42,7 +43,7 @@ class Accordion extends Component {
                                         </tr>
                                     </thead>
                                     <tbody>
-                                        {this.props.children}
+                                        {children}
                                     </tbody>
                                 </table>
                             </CardBody>
@@ -57,7 +58,7 @@ class Accordion extends Component {
 Accordion.propTypes = {
     isAccordionCollapsed: PropTypes.bool,
     header: PropTypes.string,
-    children: PropTypes.array
+    children: PropTypes.array.isRequired
 }
 
 export default Accordion
