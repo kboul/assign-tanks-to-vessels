@@ -5,14 +5,12 @@ import ModalComp from '../common/ModalComp'
 import RegisterTank from './RegisterTank'
 import VesselList from './VesselList'
 import TankList from './TankList'
-import Accordion from '../common/Accordion'
+import VesselsGrid from './VesselsGrid'
 import { toggleModalToRegisterTank } from '../redux-local/actions'
 import { registerTank } from '../redux-local/actions'
-import { selectLabels } from '../constants/tankLabels'
 
 const Container = ({ modal: { isModalToRegisterTankVisible },
-    toggleModalToRegisterTank, registerTank, tank,
-    tanks: { registeredTanks, selectedVesselFromList } }) => {
+    toggleModalToRegisterTank, registerTank, tank }) => {
 
     return (
         <div className="row">
@@ -21,7 +19,7 @@ const Container = ({ modal: { isModalToRegisterTankVisible },
                     className="btn btn-primary"
                     onClick={() => toggleModalToRegisterTank()}>
                     Register Tank
-            </button>
+                </button>
 
                 <ModalComp
                     header={'Add New Tank'}
@@ -38,31 +36,7 @@ const Container = ({ modal: { isModalToRegisterTankVisible },
                 <VesselList />
             </div>
             <div className="col-md-6">
-                {registeredTanks.length > 0 &&
-                    <div className="mt-4">
-                        <h4>Vessels Grid</h4>
-                        {selectLabels[0].options.map((selectLabel, key) => {
-                            return (
-                                <Accordion key={key} header={selectLabel}>
-                                    {registeredTanks
-                                        .filter(tank => tank.cylinderSize === selectLabel
-                                            && tank.vessel === selectedVesselFromList)
-                                        .map((tank, key) => {
-                                            return (
-                                                <tr key={key}>
-                                                    <td>{tank.unimedId}</td>
-                                                    <td>{tank.cyclinderSerialNumber}</td>
-                                                    <td>{tank.cylinderSize}</td>
-                                                    <td>{tank.origin}</td>
-                                                    <td>{tank.owner}</td>
-                                                </tr>
-                                            )
-                                        })}
-                                </Accordion>
-                            )
-                        })}
-                    </div>
-                }
+                <VesselsGrid />
             </div>
         </div>
     )
@@ -70,15 +44,14 @@ const Container = ({ modal: { isModalToRegisterTankVisible },
 
 Container.propTypes = {
     modal: PropTypes.objectOf(Boolean).isRequired,
+    tank: PropTypes.object,
     toggleModalToRegisterTank: PropTypes.func.isRequired,
-    registerTank: PropTypes.func.isRequired,
-    tank: PropTypes.object
+    registerTank: PropTypes.func.isRequired
 }
 
 const mapStateToProps = state => ({
     modal: state.modal,
-    tank: state.form.registerTank,
-    tanks: state.tanks
+    tank: state.form.registerTank
 })
 
 export default connect(mapStateToProps, {
