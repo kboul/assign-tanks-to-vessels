@@ -1,3 +1,8 @@
+/**
+ * 
+ * @param {*} vesselName string
+ */
+
 import { vesselInfo } from '../constants/vessels'
 
 export const assignFlagToVessel = vesselName => {

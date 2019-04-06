@@ -1,3 +1,9 @@
+/**
+ * 
+ * @param {*} rowIndex number
+ * @param {*} currentIndex number
+ */
+
 export const hightlightTableRow = (rowIndex, currentIndex) => {
     return {
         cursor: 'pointer',
