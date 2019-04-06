@@ -1,4 +1,5 @@
 import { TYPES } from '../actions/types'
+import { assignFlagToVessel } from '../../utils/assignFlagToVessel'
 
 const initialState = {
     registeredTanks: [],
@@ -54,7 +55,8 @@ function tanksReducer(state = initialState, action) {
             // the vessel name
             const tankToAssignVessel = state.registeredTanks[index] = {
                 ...state.registeredTanks[index],
-                vessel: action.vesselName
+                vessel: action.vesselName,
+                flag: assignFlagToVessel(action.vesselName)
             }
 
             // collect all remaining tank objects apart 
