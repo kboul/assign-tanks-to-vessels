@@ -32,13 +32,6 @@ function tanksReducer(state = initialState, action) {
                     { ...action.tank }
                 ]
             }
-        case TYPES.REMOVE_TANK_FROM_REGISTERED:
-            const tanks = state.registeredTanks
-                .filter(tank => tank.unimedId === action.unimedId)
-            return {
-                ...state,
-                registeredTanks: [...tanks]
-            }
         case TYPES.SELECTED_TANK:
             return {
                 ...state,
@@ -57,20 +50,23 @@ function tanksReducer(state = initialState, action) {
             })
 
             // update the specific tank object instance
-            //  by maintaining it & injecting the vessel name
-            const tankObjectWithVessel = state.registeredTanks[index] = {
+            // by spreading it in the array & injecting 
+            // the vessel name
+            const tankToAssignVessel = state.registeredTanks[index] = {
                 ...state.registeredTanks[index],
                 vessel: action.vessselName
             }
 
-            // remove the previous tank object instance
-            const removePreviousTankObject = state.registeredTanks.slice(0, index)
+            // collect all remaining tank objects apart 
+            // from the one that was previously modified
+            const deriveRestOfTanks = state.registeredTanks
+                .filter(tank => tank.unimedId !== state.registeredTanks[index].unimedId)
 
             return {
                 ...state,
                 registeredTanks: [
-                    ...removePreviousTankObject,
-                    tankObjectWithVessel
+                    tankToAssignVessel,
+                    ...deriveRestOfTanks
                 ]
             }
         case TYPES.SELECT_FROM_VESSEL_LIST:
