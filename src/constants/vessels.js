@@ -1,4 +1,4 @@
-export const vesselList = [
+export const vesselInfo = [
     { name: 'Astoria', flag: 'Greece' },
     { name: 'Lady Gloria', flag: 'Malta' },
     { name: '17th October', flag: 'Netherlands' },
@@ -7,4 +7,4 @@ export const vesselList = [
     { name: 'Janna', flag: 'Denmark' }
 ]
 
-export const vessels = [...vesselList.map(({ name }) => name)]
+export const vessels = [...vesselInfo.map(({ name }) => name)]

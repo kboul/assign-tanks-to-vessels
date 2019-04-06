@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import PropTypes from 'prop-types'
-import { vesselList } from '../constants/vessels'
+import { vesselInfo } from '../constants/vessels'
 import { selectVesselGrid } from '../redux-local/actions'
 import { hightlightTableRow } from '../utils/highlightTableRow'
 
@@ -26,7 +26,7 @@ class VesselList extends Component {
                         </tr>
                     </thead>
                     <tbody>
-                        {vesselList.map(({ name, flag }, index) => {
+                        {vesselInfo.map(({ name, flag }, index) => {
                             return (
                                 <tr
                                     style={hightlightTableRow(index, this.state.currentRowIndex)}
