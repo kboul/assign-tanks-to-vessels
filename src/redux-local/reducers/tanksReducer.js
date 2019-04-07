@@ -6,18 +6,26 @@ const initialState = {
     registeredTanks: [],
     selectedTank: {},
     selectedVesselFromList: '',
-    flagConstraint: false
+    flagConstraint: false,
+    tankWithSameId: false
 }
 
 function tanksReducer(state = initialState, action) {
     switch (action.type) {
         case TYPES.REGISTER_TANK:
+            // revert tankWithSameId message
+            state.tankWithSameId = false
+            // revert constraint message
+            state.flagConstraint = false
+
             // if a tank has same unimedId with an existing one 
             // don't store it and return current registeredTanks state
             const tankHasSameIdWithExisting = state.registeredTanks
                 .filter(tank => tank.unimedId === action.tank.unimedId)
 
             if (tankHasSameIdWithExisting.length > 0) {
+                // display tankWithSameId message 
+                state.tankWithSameId = true
                 return {
                     ...state,
                     registeredTanks: [
@@ -45,8 +53,11 @@ function tanksReducer(state = initialState, action) {
         case TYPES.ASSIGN_TANK_TO_VESSEL:
             // store tanks to a shorter variable
             const tanks = state.registeredTanks
+
             // revert constraint message
             state.flagConstraint = false
+            // revert tankWithSameId message
+            state.tankWithSameId = false
 
             // find the array index which contains the tank to assign vessel
             let index

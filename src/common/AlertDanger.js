@@ -1,18 +1,19 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 
-const AlertDanger = ({ flagConstraint }) => {
-    if (!flagConstraint) return null
+const AlertDanger = ({ constraint, alertMessage }) => {
+    if (!constraint) return null
 
     return (
         <div className="alert alert-danger m-2">
-            The selected vessel can not receive more tanks of this type
+            {alertMessage}
         </div>
     )
 }
 
 AlertDanger.propTypes = {
-    flagConstraint: PropTypes.bool.isRequired
+    constraint: PropTypes.bool.isRequired,
+    alertMessage: PropTypes.string.isRequired
 }
 
 export default AlertDanger

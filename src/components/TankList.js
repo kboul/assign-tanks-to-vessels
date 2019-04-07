@@ -14,7 +14,8 @@ import { displayNumberOfTanks } from '../utils/displayNumberOfTanks'
 import '../styles/TankList.css'
 
 
-const TankList = ({ tanks: { registeredTanks, flagConstraint },
+const TankList = ({ tanks: { registeredTanks,
+    flagConstraint, tankWithSameId },
     modal: { isModalToAssignTankToVesselVisible },
     toggleModalToAssignTankToVessel, selectTank,
     assignTankToVessel, vessel }) => {
@@ -76,7 +77,13 @@ const TankList = ({ tanks: { registeredTanks, flagConstraint },
                 {displayNumberOfTanks(registeredTanks)}
             </div>
 
-            <AlertDanger flagConstraint={flagConstraint} />
+            <AlertDanger
+                constraint={tankWithSameId}
+                alertMessage={'There is already a tank with this Id'} />
+
+            <AlertDanger
+                constraint={flagConstraint}
+                alertMessage={'The selected vessel can not receive more tanks of this type'} />
 
             <ModalComp
                 header={'Assign Tank To Vessel'}
