@@ -13,7 +13,6 @@ import { allLabels } from '../constants/tankLabels'
 import { displayNumberOfTanks } from '../utils/displayNumberOfTanks'
 import '../styles/TankList.css'
 
-
 const TankList = ({ tanks: { registeredTanks,
     flagConstraint, tankWithSameId },
     modal: { isModalToAssignTankToVesselVisible },
