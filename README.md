@@ -49,7 +49,7 @@ Click on **Register Tank** button and insert new tank information. A modal will 
 
 Insert all the above information and click Save.
 
-A table will be populated dynamically having 6 columns and the **Vessels Grid** containing 5 expandable Accordions corresponding to a tank's cylinder type. These are:
+A table will be populated dynamically having 6 columns displaying the **Registered Tanks**. These are:
     * Unimed Id, 
     * Cylinder Serial Number	
     * Cylinder Size	
@@ -57,7 +57,13 @@ A table will be populated dynamically having 6 columns and the **Vessels Grid** 
     * Owner	
     * Assign Tank To Vessel
 
-The 5 first columns display the new inserted tank information.
+Also, the **Vessels Grid** will be displayed containing 5 expandable Accordions corresponding to a tank's cylinder type. These are:
+    * MOX-40
+    * MOX-10
+    * MOX-5
+    * MOX-2
+
+The 5 first columns of the Registered Tanks table display the new inserted tank information.
 The 6th column (**Assign Tank To Vessel**) contains a button named **Assign**. 
 Clicking on that button triggers the display of a modal that contains a drop-down list to select in which vessel the selected tank should be assigned.
 
