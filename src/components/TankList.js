@@ -76,13 +76,13 @@ const TankList = ({ tanks: { registeredTanks,
                 {displayNumberOfTanks(registeredTanks)}
             </div>
 
-            <AlertDanger
-                constraint={tankWithSameId}
-                alertMessage={'There is already a tank with this Id'} />
+            <AlertDanger constraint={tankWithSameId}>
+                There is already a tank with this Id
+            </AlertDanger>
 
-            <AlertDanger
-                constraint={flagConstraint}
-                alertMessage={'The selected vessel can not receive more tanks of this type'} />
+            <AlertDanger constraint={flagConstraint}>
+                The selected vessel can not receive more tanks of this type
+            </AlertDanger>
 
             <ModalComp
                 header={'Assign Tank To Vessel'}
