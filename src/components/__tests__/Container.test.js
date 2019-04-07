@@ -1,10 +1,10 @@
 import React from 'react'
 import { mount } from 'enzyme'
-import Rout from '../Rout'
-import Container from './Container'
-import VesselList from './VesselList'
-import VesselsGrid from './VesselsGrid'
-import TankList from './TankList'
+import Rout from '../../Rout'
+import Container from '../Container'
+import VesselList from '../VesselList'
+import VesselsGrid from '../VesselsGrid'
+import TankList from '../TankList'
 
 let wrapped
 
