@@ -14,8 +14,6 @@ beforeEach(() => {
     )
 })
 
-afterEach(() => wrapped.unmount())
-
 it('contains <Select />', () => {
     expect(wrapped.find(Select)).toHaveLength(1)
 })
