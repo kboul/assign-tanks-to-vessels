@@ -4,17 +4,37 @@ clone the project
 
 select master branch
 
-Navigate to the root folder:
+Navigate to the root folder
+
+Install npm dependencies
 
 ```
 npm install
 ```
+
+Start the development server
 
 ``` 
 npm start
 ``` 
 
 Browser listens normally to localhost:3000, it will be opened automatically after npm start
+
+## Test the project
+
+Navigate to the root folder
+
+Run tests
+
+```
+npm run test
+```
+
+Get the project's test coverage
+
+```
+npm run test:coverage
+```
 
 ## Instructions how to use the app
 
