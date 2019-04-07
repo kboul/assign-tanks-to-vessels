@@ -1,18 +1,18 @@
 ## Run the project
 
-clone the project
+1. clone the project
 
-select master branch
+2. select master branch
 
-Navigate to the root folder
+3. Navigate to the root folder
 
-Install npm dependencies
+4. Install npm dependencies
 
 ```
 npm install
 ```
 
-Start the development server
+5. Start the development server
 
 ``` 
 npm start
