@@ -41,15 +41,17 @@ npm run test:coverage
 ## Instructions how to use the app
 
 Click on **Register Tank** button and insert new tank information. A modal will be displayed with a form that includes:
-    * Unimed Id (text)
-    * Cylinder Serial Number (text)
-    * Cylinder Size (drop-down)
-    * Origin (drop-down)
-    * Owner (drop-down)
+
+* Unimed Id (text)
+* Cylinder Serial Number (text)
+* Cylinder Size (drop-down)
+* Origin (drop-down)
+* Owner (drop-down)
 
 Insert all the above information and click Save.
 
 A table will be populated dynamically having 6 columns displaying the Registered Tanks. These are: 
+
 * Unimed Id
 * Cylinder Serial Number 
 * Cylinder Size 
@@ -58,6 +60,7 @@ A table will be populated dynamically having 6 columns displaying the Registered
 * Assign Tank To Vessel
 
 Also, the **Vessels Grid** will be displayed containing 5 expandable Accordions corresponding to a tank's cylinder type. These are:
+
 * MOX-40
 * MOX-10
 * MOX-5
