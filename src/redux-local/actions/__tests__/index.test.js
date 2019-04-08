@@ -1,8 +1,8 @@
 import { TYPES } from '../types'
-import { registerTank, toggleModalToRegisterTank } from '..'
+import { registerTank, toggleModalToRegisterTank, assignTankToVessel, toggleModalToAssignTankToVessel } from '..'
 
 describe('actions', () => {
-    it('should create an action to add a tank', () => {
+    it('should toggle the modal state to register a tank', () => {
         const expectedAction = {
             type: TYPES.TOGGLE_MODAL_TO_REGISTER_TANK
         }
@@ -24,4 +24,10 @@ describe('actions', () => {
         expect(registerTank(tank)).toEqual(expectedAction)
     })
 
+    it('should toggle the modal state to assign a tank to a vessel', () => {
+        const expectedAction = {
+            type: TYPES.TOGGLE_MODAL_TO_ASSIGN_TANK_TO_VESSEL
+        }
+        expect(toggleModalToAssignTankToVessel()).toEqual(expectedAction)
+    })
 })
