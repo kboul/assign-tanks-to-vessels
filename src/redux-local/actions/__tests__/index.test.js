@@ -2,7 +2,8 @@ import { TYPES } from '../types'
 import {
     registerTank, toggleModalToRegisterTank,
     toggleModalToAssignTankToVessel,
-    selectTank
+    selectTank,
+    selectVesselGrid
 } from '..'
 
 const tank = {
@@ -42,5 +43,14 @@ describe('actions', () => {
             tank
         }
         expect(selectTank(tank)).toEqual(expectedAction)
+    })
+
+    it('should select a tank', () => {
+        const vessel = 'Claudia'
+        const expectedAction = {
+            type: TYPES.SELECT_FROM_VESSEL_LIST,
+            vessel
+        }
+        expect(selectVesselGrid(vessel)).toEqual(expectedAction)
     })
 })
