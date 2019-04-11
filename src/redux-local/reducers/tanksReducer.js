@@ -43,7 +43,7 @@ function tanksReducer(state = initialState, action) {
                     { ...action.tank }
                 ]
             }
-        case TYPES.SELECTED_TANK:
+        case TYPES.SELECT_TANK:
             return {
                 ...state,
                 selectedTank: {

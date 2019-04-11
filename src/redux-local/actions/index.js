@@ -19,7 +19,7 @@ export const toggleModalToAssignTankToVessel = () => ({
 })
 
 export const selectTank = tank => ({
-    type: TYPES.SELECTED_TANK,
+    type: TYPES.SELECT_TANK,
     tank
 })
 

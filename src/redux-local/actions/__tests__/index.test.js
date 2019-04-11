@@ -43,7 +43,7 @@ describe('actions', () => {
     it(`should create an action to select a 
         tank from registered tanks table`, () => {
             const expectedAction = {
-                type: TYPES.SELECTED_TANK,
+                type: TYPES.SELECT_TANK,
                 tank
             }
             expect(selectTank(tank)).toEqual(expectedAction)
