@@ -6,7 +6,7 @@ import tanksReducer from './tanksReducer'
 const rootReducer = combineReducers({
     form: formReducer,
     modal: modalReducer,
-    tanks: tanksReducer,
+    tanks: tanksReducer
 })
 
 export default rootReducer
