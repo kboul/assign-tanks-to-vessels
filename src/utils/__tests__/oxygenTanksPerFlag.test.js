@@ -1,4 +1,4 @@
-import { oxygenTankPerFlag } from '../oxygenTanksPerFlag'
+import { oxygenTanksPerFlag } from '../oxygenTanksPerFlag'
 
 const tanks = [{
     unimedId: "666",
@@ -31,5 +31,5 @@ const tanks = [{
 it(`returns the number of registered tanks 
     that have the provided (as function arguments) 
     flag & cylinder type`, () => {
-        expect(oxygenTankPerFlag(tanks, 'Greece', 'MOX-40')).toEqual(2)
+        expect(oxygenTanksPerFlag(tanks, 'Greece', 'MOX-40')).toEqual(2)
     })

@@ -1,6 +1,6 @@
 import { TYPES } from '../actions/types'
 import { assignFlagToVessel } from '../../utils/assignFlagToVessel'
-import { oxygenTankPerFlag } from '../../utils/oxygenTanksPerFlag'
+import { oxygenTanksPerFlag } from '../../utils/oxygenTanksPerFlag'
 
 const initialState = {
     registeredTanks: [],
@@ -83,25 +83,25 @@ function tanksReducer(state = initialState, action) {
                 .filter(tank => tank.unimedId !== tanks[index].unimedId)
 
             // apply cylinder type constraints per vessel flag 
-            const greeceMox40 = oxygenTankPerFlag(tanks, 'Greece', 'MOX-40')
-            const greeceMox10 = oxygenTankPerFlag(tanks, 'Greece', 'MOX-10')
-            const greeceMox5 = oxygenTankPerFlag(tanks, 'Greece', 'MOX-5')
-            const greeceMox2 = oxygenTankPerFlag(tanks, 'Greece', 'MOX-2')
+            const greeceMox40 = oxygenTanksPerFlag(tanks, 'Greece', 'MOX-40')
+            const greeceMox10 = oxygenTanksPerFlag(tanks, 'Greece', 'MOX-10')
+            const greeceMox5 = oxygenTanksPerFlag(tanks, 'Greece', 'MOX-5')
+            const greeceMox2 = oxygenTanksPerFlag(tanks, 'Greece', 'MOX-2')
 
-            const maltaMox40 = oxygenTankPerFlag(tanks, 'Malta', 'MOX-40')
-            const maltaMox10 = oxygenTankPerFlag(tanks, 'Malta', 'MOX-10')
-            const maltaMox5 = oxygenTankPerFlag(tanks, 'Malta', 'MOX-5')
-            const maltaMox2 = oxygenTankPerFlag(tanks, 'Malta', 'MOX-2')
+            const maltaMox40 = oxygenTanksPerFlag(tanks, 'Malta', 'MOX-40')
+            const maltaMox10 = oxygenTanksPerFlag(tanks, 'Malta', 'MOX-10')
+            const maltaMox5 = oxygenTanksPerFlag(tanks, 'Malta', 'MOX-5')
+            const maltaMox2 = oxygenTanksPerFlag(tanks, 'Malta', 'MOX-2')
 
-            const netherlandsMox40 = oxygenTankPerFlag(tanks, 'Netherlands', 'MOX-40')
-            const netherlandsMox10 = oxygenTankPerFlag(tanks, 'Netherlands', 'MOX-10')
-            const netherlandsMox5 = oxygenTankPerFlag(tanks, 'Netherlands', 'MOX-5')
-            const netherlandsMox2 = oxygenTankPerFlag(tanks, 'Netherlands', 'MOX-2')
+            const netherlandsMox40 = oxygenTanksPerFlag(tanks, 'Netherlands', 'MOX-40')
+            const netherlandsMox10 = oxygenTanksPerFlag(tanks, 'Netherlands', 'MOX-10')
+            const netherlandsMox5 = oxygenTanksPerFlag(tanks, 'Netherlands', 'MOX-5')
+            const netherlandsMox2 = oxygenTanksPerFlag(tanks, 'Netherlands', 'MOX-2')
 
-            const denmarkMox40 = oxygenTankPerFlag(tanks, 'Denmark', 'MOX-40')
-            const denmarkMox10 = oxygenTankPerFlag(tanks, 'Denmark', 'MOX-10')
-            const denmarkMox5 = oxygenTankPerFlag(tanks, 'Denmark', 'MOX-5')
-            const denmarkMox2 = oxygenTankPerFlag(tanks, 'Denmark', 'MOX-2')
+            const denmarkMox40 = oxygenTanksPerFlag(tanks, 'Denmark', 'MOX-40')
+            const denmarkMox10 = oxygenTanksPerFlag(tanks, 'Denmark', 'MOX-10')
+            const denmarkMox5 = oxygenTanksPerFlag(tanks, 'Denmark', 'MOX-5')
+            const denmarkMox2 = oxygenTanksPerFlag(tanks, 'Denmark', 'MOX-2')
 
             if (greeceMox40 > 2 || greeceMox10 > 4 || greeceMox5 > 2 || greeceMox2 > 2
                 || maltaMox40 > 1 || maltaMox10 > 2 || maltaMox5 > 0 || maltaMox2 > 6
