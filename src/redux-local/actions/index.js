@@ -24,6 +24,6 @@ export const selectTank = tank => ({
 })
 
 export const selectVessel = vessel => ({
-    type: TYPES.SELECT_FROM_VESSEL_LIST,
+    type: TYPES.SELECT_VESSEL,
     vessel
 })

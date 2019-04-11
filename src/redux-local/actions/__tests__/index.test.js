@@ -52,7 +52,7 @@ describe('actions', () => {
         select a vessel from vessel list`, () => {
             const vessel = 'Claudia'
             const expectedAction = {
-                type: TYPES.SELECT_FROM_VESSEL_LIST,
+                type: TYPES.SELECT_VESSEL,
                 vessel
             }
             expect(selectVessel(vessel)).toEqual(expectedAction)

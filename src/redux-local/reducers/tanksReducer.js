@@ -128,7 +128,7 @@ function tanksReducer(state = initialState, action) {
                     ...deriveRestOfTanks
                 ]
             }
-        case TYPES.SELECT_FROM_VESSEL_LIST:
+        case TYPES.SELECT_VESSEL:
             return {
                 ...state,
                 selectedVesselFromList: action.vessel
