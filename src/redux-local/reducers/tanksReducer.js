@@ -5,7 +5,7 @@ import { oxygenTanksPerFlag } from '../../utils/oxygenTanksPerFlag'
 const initialState = {
     registeredTanks: [],
     selectedTank: {},
-    selectedVesselFromList: '',
+    selectedVessel: '',
     flagConstraint: false,
     tankWithSameId: false
 }
@@ -131,7 +131,7 @@ function tanksReducer(state = initialState, action) {
         case TYPES.SELECT_VESSEL:
             return {
                 ...state,
-                selectedVesselFromList: action.vessel
+                selectedVessel: action.vessel
             }
         default:
             return state

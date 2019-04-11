@@ -8,7 +8,7 @@ import {
 
 const tableHeadStyle = { fontSize: '16px' }
 
-const VesselsGrid = ({ tanks: { registeredTanks, selectedVesselFromList } }) => {
+const VesselsGrid = ({ tanks: { registeredTanks, selectedVessel } }) => {
     if (registeredTanks.length === 0) return null
 
     return (
@@ -34,7 +34,7 @@ const VesselsGrid = ({ tanks: { registeredTanks, selectedVesselFromList } }) => 
                             <tbody>
                                 {registeredTanks
                                     .filter(tank => tank.cylinderSize === selectLabel
-                                        && tank.vessel === selectedVesselFromList)
+                                        && tank.vessel === selectedVessel)
                                     .map((tank, key) => {
                                         return (
                                             <tr key={key}>
