@@ -3,7 +3,7 @@ import {
     registerTank, toggleModalToRegisterTank,
     toggleModalToAssignTankToVessel,
     selectTank,
-    selectVesselGrid
+    selectVessel
 } from '..'
 
 const tank = {
@@ -55,6 +55,6 @@ describe('actions', () => {
                 type: TYPES.SELECT_FROM_VESSEL_LIST,
                 vessel
             }
-            expect(selectVesselGrid(vessel)).toEqual(expectedAction)
+            expect(selectVessel(vessel)).toEqual(expectedAction)
         })
 })

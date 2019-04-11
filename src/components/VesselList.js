@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import PropTypes from 'prop-types'
 import { vesselInfo } from '../constants/vessels'
-import { selectVesselGrid } from '../redux-local/actions'
+import { selectVessel } from '../redux-local/actions'
 import { hightlightTableRow } from '../utils/highlightTableRow'
 
 class VesselList extends Component {
@@ -15,7 +15,7 @@ class VesselList extends Component {
     }
 
     render() {
-        const { selectVesselGrid } = this.props
+        const { selectVessel } = this.props
         return (
             <div className="mt-4 mb-4">
                 <h4 >Vessel List</h4>
@@ -34,7 +34,7 @@ class VesselList extends Component {
                                     key={index}
                                     onClick={() => {
                                         this.handleChangeId(index)
-                                        selectVesselGrid(name)
+                                        selectVessel(name)
                                     }}>
                                     <td>{name}</td>
                                     <td>{flag}</td>
@@ -53,9 +53,9 @@ class VesselList extends Component {
 }
 
 VesselList.propTypes = {
-    selectVesselGrid: PropTypes.func.isRequired
+    selectVessel: PropTypes.func.isRequired
 }
 
 export default connect(null, {
-    selectVesselGrid
+    selectVessel
 })(VesselList)

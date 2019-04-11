@@ -23,7 +23,7 @@ export const selectTank = tank => ({
     tank
 })
 
-export const selectVesselGrid = vessel => ({
+export const selectVessel = vessel => ({
     type: TYPES.SELECT_FROM_VESSEL_LIST,
     vessel
 })
