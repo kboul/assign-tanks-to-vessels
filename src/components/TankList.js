@@ -45,9 +45,9 @@ const TankList = ({ tanks: { registeredTanks,
                     </tr>
                 </thead>
                 <tbody>
-                    {registeredTanks.map((tank, key) => {
+                    {registeredTanks.map(tank => {
                         return (
-                            <Fragment key={key}>
+                            <Fragment key={tank.unimedId}>
                                 <tr>
                                     <td>{tank.unimedId}</td>
                                     <td>{tank.cyclinderSerialNumber}</td>
@@ -58,7 +58,6 @@ const TankList = ({ tanks: { registeredTanks,
                                         <button
                                             className="btn btn-sm btn-primary"
                                             onClick={() => {
-                                                console.log(tank)
                                                 selectTank(tank)
                                                 toggleModalToAssignTankToVessel()
                                             }}>
