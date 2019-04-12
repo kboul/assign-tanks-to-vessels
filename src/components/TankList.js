@@ -11,7 +11,7 @@ import {
 } from '../redux-local/actions'
 import { allLabels } from '../constants/tankLabels'
 import { displayNumberOfTanks } from '../utils/displayNumberOfTanks'
-import '../styles/TankList.css'
+import { tables } from '../styles/tables.module.css'
 
 const TankList = ({ tanks: { registeredTanks,
     flagConstraint, tankWithSameId },
@@ -28,14 +28,16 @@ const TankList = ({ tanks: { registeredTanks,
 
     return (
         <Fragment>
-            <h4 className="mt-4">Pool of Registered Oxygen Tanks</h4>
-            <table className="table mt-2" id="tanksTable">
+            <h4 className="mt-4">
+                Pool of Registered Oxygen Tanks
+            </h4>
+            <table className={`table mt-2 ${tables}`}>
                 <thead>
                     <tr>
-                        {allLabels.map((label, key) => {
+                        {allLabels.map((label, index) => {
                             return (
                                 <th
-                                    key={key}
+                                    key={index}
                                     scope="col">
                                     {label}
                                 </th>

@@ -4,6 +4,7 @@ import PropTypes from 'prop-types'
 import { vesselInfo } from '../constants/vessels'
 import { selectVessel } from '../redux-local/actions'
 import { hightlightTableRow } from '../utils/highlightTableRow'
+import { tables } from '../styles/tables.module.css'
 
 class VesselList extends Component {
     state = {
@@ -20,7 +21,7 @@ class VesselList extends Component {
         return (
             <div className="mt-4 mb-4">
                 <h4 >Vessel List</h4>
-                <table className="table mt-2" id="tanksTable">
+                <table className={`table mt-2 ${tables}`}>
                     <thead>
                         <tr>
                             <th>Name</th>
