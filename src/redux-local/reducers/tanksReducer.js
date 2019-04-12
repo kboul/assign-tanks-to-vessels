@@ -13,9 +13,9 @@ const initialState = {
 function tanksReducer(state = initialState, action) {
     switch (action.type) {
         case TYPES.REGISTER_TANK:
-            // revert tankWithSameId message
+            // revert tankWithSameId alert
             state.tankWithSameId = false
-            // revert constraint message
+            // revert constraint alert
             state.flagConstraint = false
 
             // if a tank has same unimedId with an existing one 
@@ -24,7 +24,7 @@ function tanksReducer(state = initialState, action) {
                 .filter(tank => tank.unimedId === action.tank.unimedId)
 
             if (tankHasSameIdWithExisting.length > 0) {
-                // display tankWithSameId message 
+                // display tankWithSameId alert 
                 state.tankWithSameId = true
                 return {
                     ...state,
@@ -54,9 +54,9 @@ function tanksReducer(state = initialState, action) {
             // store tanks to a shorter variable
             const tanks = state.registeredTanks
 
-            // revert constraint message
+            // revert constraint alert
             state.flagConstraint = false
-            // revert tankWithSameId message
+            // revert tankWithSameId alert
             state.tankWithSameId = false
 
             // find the array index which contains the tank to assign vessel
@@ -107,7 +107,7 @@ function tanksReducer(state = initialState, action) {
                 || maltaMox40 > 1 || maltaMox10 > 2 || maltaMox5 > 0 || maltaMox2 > 6
                 || netherlandsMox40 > 2 || netherlandsMox10 > 2 || netherlandsMox5 > 1 || netherlandsMox2 > 3
                 || denmarkMox40 > 3 || denmarkMox10 > 4 || denmarkMox5 > 2 || denmarkMox2 > 1) {
-                // display constraint message
+                // display constraint alert
                 state.flagConstraint = true
                 return {
                     ...state,
