@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { Fragment } from 'react'
 import { connect } from 'react-redux'
 import PropTypes from 'prop-types'
 import ModalComp from '../common/ModalComp'
@@ -27,7 +27,7 @@ const TankList = ({ tanks: { registeredTanks,
         )
 
     return (
-        <React.Fragment>
+        <Fragment>
             <h4 className="mt-4">Pool of Registered Oxygen Tanks</h4>
             <table className="table mt-2" id="tanksTable">
                 <thead>
@@ -47,7 +47,7 @@ const TankList = ({ tanks: { registeredTanks,
                 <tbody>
                     {registeredTanks.map((tank, key) => {
                         return (
-                            <React.Fragment key={key}>
+                            <Fragment key={key}>
                                 <tr>
                                     <td>{tank.unimedId}</td>
                                     <td>{tank.cyclinderSerialNumber}</td>
@@ -66,7 +66,7 @@ const TankList = ({ tanks: { registeredTanks,
                                         </button>
                                     </td>
                                 </tr>
-                            </React.Fragment>
+                            </Fragment>
                         )
                     })}
                 </tbody>
@@ -93,7 +93,7 @@ const TankList = ({ tanks: { registeredTanks,
                     toggleModalToAssignTankToVessel()
                 }} />
             </ModalComp>
-        </React.Fragment>
+        </Fragment>
     )
 }
 
