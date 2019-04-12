@@ -15,7 +15,9 @@ const ModalComp = ({ modal, toggle, header, children }) => {
                 toggle={toggle}>
                 {header}
             </ModalHeader>
-            <ModalBody>{children}</ModalBody>
+            <ModalBody>
+                {children}
+            </ModalBody>
         </Modal>
     )
 }
