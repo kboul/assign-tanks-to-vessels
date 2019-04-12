@@ -15,6 +15,7 @@ class VesselList extends Component {
     }
 
     render() {
+        const { currentRowIndex } = this.state
         const { selectVessel } = this.props
         return (
             <div className="mt-4 mb-4">
@@ -30,7 +31,7 @@ class VesselList extends Component {
                         {vesselInfo.map(({ name, flag }, index) => {
                             return (
                                 <tr
-                                    style={hightlightTableRow(index, this.state.currentRowIndex)}
+                                    style={hightlightTableRow(index, currentRowIndex)}
                                     key={index}
                                     onClick={() => {
                                         this.handleChangeId(index)
