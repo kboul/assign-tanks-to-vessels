@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 import PropTypes from 'prop-types'
 import { Collapse, CardBody, Card, CardHeader } from 'reactstrap'
 import FaAngle from './FaAngle'
-import '../styles/Accordion.css'
+import {card, cardHeader} from '../styles/accordion.module.css'
 
 class Accordion extends Component {
     state = {
@@ -19,9 +19,9 @@ class Accordion extends Component {
         return (
             <div className="row no-gutters">
                 <div className="col">
-                    <Card id='card'>
+                    <Card className={card}>
                         <CardHeader
-                            id='cardHeader'
+                            className={cardHeader}
                             onClick={this.toggle}>
                             <FaAngle isAccordionCollapsed={collapse} />
                             &nbsp; {header}
