@@ -40,6 +40,8 @@
     "devDependencies": {
         "enzyme": "^3.9.0",
         "enzyme-adapter-react-16": "^1.12.1",
-        "handlebars": "^4.1.2"
+        "gh-pages": "^2.0.1",
+        "handlebars": "^4.1.2",
+        "tar": "^4.4.8"
     }
 }
