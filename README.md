@@ -1,4 +1,4 @@
-# Tanks & Vessels App
+# Assign Tanks To Vessels
 
 ## Run the project
 
@@ -29,7 +29,7 @@ Navigate to the root folder
 Run tests
 
 ```
-npm run test
+npm test
 ```
 
 Get the project's test coverage
