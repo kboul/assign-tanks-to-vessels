@@ -8,7 +8,7 @@ import {
     toggleModalToAssignTankToVessel,
     selectTank,
     assignTankToVessel
-} from '../redux-local/actions'
+} from '../store/actions'
 import { allLabels } from '../constants/tankLabels'
 import { displayNumberOfTanks } from '../utils/displayNumberOfTanks'
 import { tables } from '../styles/tables.module.css'

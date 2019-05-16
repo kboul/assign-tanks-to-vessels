@@ -6,8 +6,8 @@ import RegisterTank from './RegisterTank'
 import VesselList from './VesselList'
 import TankList from './TankList'
 import VesselsGrid from './VesselsGrid'
-import { toggleModalToRegisterTank } from '../redux-local/actions'
-import { registerTank } from '../redux-local/actions'
+import { toggleModalToRegisterTank } from '../store/actions'
+import { registerTank } from '../store/actions'
 
 const Container = ({ modal: { isModalToRegisterTankVisible },
     toggleModalToRegisterTank, registerTank, tank }) => {

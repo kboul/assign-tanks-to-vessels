@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import PropTypes from 'prop-types'
 import { vesselInfo } from '../constants/vessels'
-import { selectVessel } from '../redux-local/actions'
+import { selectVessel } from '../store/actions'
 import { hightlightTableRow } from '../utils/highlightTableRow'
 import { tables } from '../styles/tables.module.css'
 

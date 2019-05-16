@@ -3,7 +3,7 @@ import { Provider } from 'react-redux'
 import PropTypes from 'prop-types'
 
 import { createStore, compose } from 'redux'
-import reducer from './redux-local/reducers'
+import reducer from './store/reducers'
 
 const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__
     || compose
