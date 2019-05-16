@@ -4,11 +4,7 @@ import PropTypes from 'prop-types'
 import ModalComp from '../common/ModalComp'
 import SelectVessel from './SelectVessel'
 import AlertDanger from '../common/AlertDanger'
-import {
-    toggleModalToAssignTankToVessel,
-    selectTank,
-    assignTankToVessel
-} from '../store/actions'
+import * as actions from '../store/actions'
 import { allLabels } from '../constants/tankLabels'
 import { displayNumberOfTanks } from '../utils/displayNumberOfTanks'
 import { tables } from '../styles/tables.module.css'
@@ -111,8 +107,4 @@ const mapStateToProps = state => ({
     vessel: state.form.selectVessel
 })
 
-export default connect(mapStateToProps, {
-    toggleModalToAssignTankToVessel,
-    selectTank,
-    assignTankToVessel
-})(TankList)
+export default connect(mapStateToProps, actions)(TankList)
